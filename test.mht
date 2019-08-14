@@ -1,0 +1,3396 @@
+From: =?gb2312?B?08kgV2luZG93cyBJbnRlcm5ldCBFeHBsb3JlciA4ILGjtOY=?=
+Subject: LDRA Testbed Code Review Report
+Date: Tue, 13 Aug 2019 16:33:10 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01D551F4.CB520D80"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7601.17514
+
+这是 MIME 格式的多方邮件。
+
+------=_NextPart_000_0000_01D551F4.CB520D80
+Content-Type: text/html;
+	charset="gb2312"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file://D:\00-LDRA\LDRA_Workarea\ATP_v1.6.0_P4_1.3.0_tbwrkfls\balise_proc_adap_9.rpf.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>LDRA Testbed Code Review Report</TITLE>
+<META content=3D"text/html; charset=3Dgb2312" http-equiv=3DContent-Type>
+<STYLE type=3Dtext/css>P.pagebreak {
+	PAGE-BREAK-BEFORE: always
+}
+P.nopagebreak {
+=09
+}
+P.shiftleft {
+	MARGIN-LEFT: -54pt
+}
+BR.pagebreak {
+	PAGE-BREAK-BEFORE: always
+}
+</STYLE>
+
+<SCRIPT language=3DJavascript>
+
+function popup(mylink, windowname)
+{
+if (! window.focus && window.opener)
+{
+return true;
+}
+var href;
+var temp;
+if (typeof(mylink)=3D=3D'string')
+{
+href=3Dmylink;
+}
+else
+{
+href=3Dmylink.href;
+temp =3D window.open(href, windowname, 'width=3D600,        =
+height=3D300,scrollbars=3Dyes');
+temp.focus();
+return false;
+}
+}
+function targetopener(mylink, closeme, closeonly)
+{
+if (! (window.focus && window.opener))     return true;
+if (! closeonly)                                 =
+window.opener.location.href=3Dmylink.href;
+window.blur();
+window.opener.focus();
+if (closeme)                                    window.close();
+return false;
+return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=3DJavascript=20
+src=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/imag=
+ejs.js">=20
+// -->
+</SCRIPT>
+
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7601.17514"></HEAD>
+<BODY bgColor=3D#fffff2>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/oran-line.gif" width=3D80% height=3D10>') }
+else{ document.write(temp_str + 'oran-line.gif" width=3D80% =
+height=3D10>') }
+</SCRIPT>
+</CENTER><BR><A name=3Dtop_of_rep></A><BR>
+<STYLE type=3Dtext/css>A.set1:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #fbfcc8; =
+TEXT-DECORATION: none
+}
+A.set1:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #fbfcc8; =
+TEXT-DECORATION: none
+}
+A.set1:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #fbfcc8; =
+TEXT-DECORATION: none
+}
+A:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: blue; =
+TEXT-DECORATION: none
+}
+A:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: blue; =
+TEXT-DECORATION: none
+}
+A:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: blue; =
+TEXT-DECORATION: none
+}
+</STYLE>
+
+<CENTER><FONT size=3D9><B>LDRA Testbed &reg; Code Review Report =
+</FONT></B></CENTER>
+<CENTER><FONT size=3D9><B></FONT></B></CENTER>
+<CENTER>
+<H1>File :=20
+C:\Users\Q\Desktop\CBTC2.0_ATP_testbed_v1.6.0_P4_1.3.0\CBTC2.0_ATP\app\ji=
+ngtai\balise_proc_adap.c=20
+</H1></CENTER><BR><BR><BR><BR>
+<HR width=3D"100%">
+
+<CENTER>
+<TABLE border=3D1 width=3D"50%">
+  <TBODY>
+  <TR>
+    <TH bgColor=3D#ff0000><FONT color=3D#fbfcc8 size=3D5>Overall Result: =
+FAIL=20
+    </FONT></TH></TR></TBODY></TABLE></CENTER>
+<HR width=3D"100%">
+<BR><BR><BR>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/break_p.gif">') }else{ document.write(temp_str + =
+'break_p.gif">') }</SCRIPT>
+</CENTER><BR><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#d7eded>
+  <TBODY>
+  <TR>
+    <TH>Report Production </TH>
+    <TH>Report Configuration </TH>
+    <TH>Analysis phases </TH></TR>
+  <TR>
+    <TD>
+      <UL>
+        <LI>C/C++ LDRA Testbed Version: 9.3.0
+        <LI>Config. File: C:\LDRA_Toolsuite\c\creport.dat
+        <LI>Produced On: Tue Aug 13 2019 at 16:33:06
+        <LI>Penalty File: C:\LDRA_Toolsuite\c\cpen.dat</LI></UL></TD>
+    <TD>
+      <UL>
+        <LI>Report Level: Summary Report
+        <LI>Procedures Reported: Fails Only
+        <LI>Programming Standards Model: YJY-TR
+        <LI>Line Numbers refer to: Original Source File
+        <LI>Violation Details: Violations Only
+        <LI>Reporting Scope: Source file and associated =
+header</LI></UL></TD>
+    <TD>
+      <UL>
+        <LI>Static: Yes
+        <LI>Complexity: Yes
+        <LI>Static Data Flow: Yes
+        <LI>Information Flow: No
+        <LI>Cross Reference: =
+Yes</LI></UL></TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/break_p.gif">') }else{ document.write(temp_str + =
+'break_p.gif">') }</SCRIPT>
+</CENTER>
+<H4><A name=3Dcontents>Contents </A></H4>Overall Code Review Summary =
+<BR>
+<UL>
+  <LI>Totals of Violations for each Standard <BR>
+  <LI><A=20
+  =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#procedure_table">Table=20
+  of Procedure Results </A><BR>
+  <LI>Table of Global Basic Information <BR><BR></LI></UL><A=20
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#procedure_reports">Report=20
+on Program Components </A><BR>
+<UL>
+  <LI>Code Review Results Global Program and Selected Procedures=20
+<BR><BR></LI></UL><A=20
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#key_to_terms">Key=20
+to Terms </A><BR>
+<HR>
+<BR><BR><BR><BR>
+<CENTER>
+<H2>Overall Code Review Summary</H2></CENTER><BR><BR>
+<H4>Totals of Violations for Selected Code Review Standards </H4>'-' =
+indicates=20
+required Analysis Phase results are not yet available. <BR>'Off' =
+indicates that=20
+the standard is switched off in the Penalty File (&lt;lang&gt;pen.dat).=20
+<BR>'MR'indicates that the standard is Misra Restricted. <BR><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(M) Mandatory Standards </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>2 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s2">') + =
+document.write('Label name reused.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>9 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s9">') + =
+document.write('Assignment operation in expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>11 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s11">') + document.write('No =
+brackets to loop body.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>12 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s12">') + document.write('No =
+brackets to then/else.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>13 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s13">') + =
+document.write('goto detected.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>21 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s21">') + =
+document.write('Number of parameters does not match.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>27 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s27">') + =
+document.write('Void procedure with return statement.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>32 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s32">') + =
+document.write('Use of continue statement.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>36 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s36">') + =
+document.write('Function has no return statement.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>37 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s37">') + =
+document.write('Procedure parameter has a type but no identifier.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>39 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s39">') + =
+document.write('Unsuitable type for loop variable.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>41 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s41">') + =
+document.write('Ellipsis used in procedure parameter list.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>43 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s43">') + =
+document.write('Use of setjmp/longjmp.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>44 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s44">') + =
+document.write('Use of banned function or variable.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>47 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s47">') + =
+document.write('Array bound exceeded.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>48 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s48">') + document.write('No =
+default case in switch statement.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>49 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s49">') + =
+document.write('Logical conjunctions need brackets.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup51S.htm">4</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>51 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s51">') + =
+document.write('Shifting value too far.') + document.write('</a>') =
+</SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>52 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s52">') + =
+document.write('Unsigned expression negated.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>53 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s53">') + =
+document.write('Use of comma operator.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>56 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s56">') + =
+document.write('Equality comparison of floating point.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>58 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s58">') + =
+document.write('Null statement found.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>60 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s60">') + =
+document.write('Empty switch statement.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>61 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s61">') + =
+document.write('Switch contains default only.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>62 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s62">') + =
+document.write('Switch case not terminated with break.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>63 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s63">') + =
+document.write('Empty parameter list to procedure/function.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>66 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s66">') + =
+document.write('Function with empty return expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>67 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s67">') + =
+document.write('#define used in a block.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>70 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s70">') + =
+document.write('Logical comparison of pointers.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>71 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s71">') + =
+document.write('Pointer assignment to wider scope.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>72 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s72">') + =
+document.write('Signed bit field less than 2 bits wide.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>73 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s73">') + =
+document.write('Bit field not signed or unsigned int.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>74 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s74">') + =
+document.write('Union declared.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>75 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s75">') + =
+document.write('Executable code before an included file.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>76 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s76">') + =
+document.write('More than one of # or ## in a macro.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>78 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s78">') + =
+document.write('Macro parameter not in brackets.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>79 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s79">') + =
+document.write('Macro contains unacceptable items.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>81 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s81">') + =
+document.write('Use of trigraphs.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>83 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s83">') + =
+document.write('Octal number found.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>85 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s85">') + =
+document.write('Incomplete initialisation of enumerator.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>86 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s86">') + =
+document.write('Attempt to define reserved word.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>94 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s94">') + =
+document.write('Casting operation on a pointer.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>95 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s95">') + =
+document.write('Casting operation to a pointer.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup96S.htm">10</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>96 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s96">') + =
+document.write('Use of mixed mode arithmetic.') + document.write('</a>') =
+</SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup98S.htm">1</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>98 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s98">') + =
+document.write('Actual and formal parameters inconsistent (MR).') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>100 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s100">') + =
+document.write('#include filename is non conformant.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>101 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s101">') + =
+document.write('Function return type inconsistent.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD>
+      <CENTER>MR </CENTER></TD>
+    <TD>102 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s102">') + =
+document.write('Function and prototype return inconsistent (MR).') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD>
+      <CENTER>MR </CENTER></TD>
+    <TD>103 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s103">') + =
+document.write('Function and prototype param inconsistent (MR).') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>105 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s105">') + =
+document.write('Initialisation brace { } fault.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(M) Mandatory Standards </TH></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup110S.htm">2</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>110 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s110">') + =
+document.write('Use of single line comment(s) //.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>112 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s112">') + =
+document.write('Typedef name redeclared.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup113S.htm">3</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>113 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s113">') + =
+document.write('Non standard character in source.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>114 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s114">') + =
+document.write('Expression is not Boolean.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>119 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s119">') + =
+document.write('Nested comment found.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup120S.htm">1</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>120 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s120">') + =
+document.write('Use of bit operator on signed type.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>122 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s122">') + =
+document.write('Use of abort, exit, etc.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>125 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s125">') + =
+document.write('Use of ## or # in a macro.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>126 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s126">') + document.write('A =
+#if has no #endif in the same file.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>127 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s127">') + =
+document.write('Array has no bounds specified.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>130 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s130">') + =
+document.write('Included file is not permitted.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>131 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s131">') + =
+document.write('Name reused in inner scope.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>132 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s132">') + =
+document.write('Assignment operator in boolean expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>142 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s142">') + =
+document.write('Parameter list declarations are inconsistent.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>147 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s147">') + =
+document.write('Spurious characters after preprocessor directive.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>148 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s148">') + =
+document.write('No return type for function/procedure.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>156 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s156">') + =
+document.write('Use of &acutedefined&acute keyword in macro body.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>172 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s172">') + =
+document.write('Variable declared multiply.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>245 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s245">') + =
+document.write('Case statement in nested block.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>248 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s248">') + =
+document.write('Divide by zero in preprocessor directive.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>278 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s278">') + =
+document.write('Switch has missing or extra cases.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>286 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s286">') + =
+document.write('Functions defined in header file.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>292 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s292">') + =
+document.write('No space between #include and filename.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>293 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s293">') + =
+document.write('Non ANSI/ISO construct used.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>296 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s296">') + =
+document.write('Function declared at block scope.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup302S.htm">7</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>302 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s302">') + =
+document.write('Comment possibly contains code.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>316 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s316">') + =
+document.write('Bit field is not unsigned integral.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>322 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s322">') + =
+document.write('Default is not last case of switch.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>324 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s324">') + =
+document.write('Macro call has wrong number of parameters.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>325 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s325">') + =
+document.write('Inconsistent use of tag.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>326 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s326">') + =
+document.write('Declaration is missing type.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>328 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s328">') + =
+document.write('Non bit field member in bitfield struct.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>329 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s329">') + =
+document.write('Operation not appropriate to plain char.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>331 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s331">') + =
+document.write('Literal value requires a U suffix.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>332 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s332">') + =
+document.write('Widening cast on complex integer expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>333 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s333">') + =
+document.write('Widening cast on complex float expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>334 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s334">') + =
+document.write('No cast when ~ or << applied to small types.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>335 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s335">') + =
+document.write('Operator defined contains illegal items.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>336 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s336">') + =
+document.write('#if expansion contains define operator.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>337 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s337">') + =
+document.write('Undefined macro variable in #if.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>338 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s338">') + =
+document.write('#include preceded by non preproc directives.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>339 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s339">') + =
+document.write('#include directive with illegal items.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>340 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s340">') + =
+document.write('Use of function like macro.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>341 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s341">') + =
+document.write('Preprocessor construct as macro parameter.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>342 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s342">') + =
+document.write('Extra chars after preprocessor directive.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>343 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s343">') + =
+document.write('#else has no #if, etc in the same file.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>344 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s344">') + =
+document.write('Cast on volatile value.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>345 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s345">') + =
+document.write('Bit operator with floating point operand.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>360 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s360">') + =
+document.write('Incompatible type.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>361 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s361">') + =
+document.write('Expression needs brackets.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(M) Mandatory Standards </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>373 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s373">') + =
+document.write('Use of integer division.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>374 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s374">') + =
+document.write('Name conflict with typedef.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>376 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s376">') + =
+document.write('Use of octal escape sequence.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>377 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s377">') + =
+document.write('Null character used within a string.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>384 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s384">') + =
+document.write('Identifier matches macro name in 31 chars.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>385 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s385">') + =
+document.write('MISRA switch statement syntax violation.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>389 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s389">') + =
+document.write('Bool value incremented/decremented.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>397 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s397">') + =
+document.write('Array initialisation has insufficient items.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>402 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s402">') + =
+document.write('Comparison of booleans.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>403 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s403">') + =
+document.write('Negative (or potentially negative) shift.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>406 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s406">') + =
+document.write('Use of ++ or -- on RHS of && or || operator.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>408 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s408">') + =
+document.write('Volatile variable accessed on RHS of && or ||.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>409 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s409">') + =
+document.write('More than one break or goto statement in loop.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>410 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s410">') + =
+document.write('Switch empty default has no comment.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>412 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s412">') + =
+document.write('Undefined behaviour, \\ before E-O-F.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>426 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s426">') + =
+document.write('#undef used in a block.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>427 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s427">') + =
+document.write('Filename in #include not in < > or " ".') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>429 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s429">') + =
+document.write('Empty middle expression in for loop.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>430 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s430">') + =
+document.write('Inconsistent usage of loop control variable.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>431 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s431">') + =
+document.write('Char used instead of (un)signed char.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>432 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s432">') + =
+document.write('Inappropriate type - should be plain char.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup433S.htm">3</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>433 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s433">') + =
+document.write('Type conversion without cast.') + document.write('</a>') =
+</SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>434 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s434">') + =
+document.write('Signed/unsigned conversion without cast.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>435 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s435">') + =
+document.write('Float/integer conversion without cast.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>436 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s436">') + =
+document.write('Declaration does not specify an array.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>437 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s437">') + document.write('< =
+> <=3D >=3D used on different object pointers.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>438 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s438">') + =
+document.write('Pointer subtraction not addressing one array.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>439 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s439">') + =
+document.write('Cast from pointer to integral type.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>440 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s440">') + =
+document.write('Cast from integral type to pointer.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>441 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s441">') + =
+document.write('Float cast to non-float.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>442 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s442">') + =
+document.write('Signed integral type cast to unsigned.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>443 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s443">') + =
+document.write('Unsigned integral type cast to signed.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>444 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s444">') + =
+document.write('Integral type cast to non-integral.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>445 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s445">') + =
+document.write('Narrower float conversion without cast.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>446 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s446">') + =
+document.write('Narrower int conversion without cast.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>451 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s451">') + =
+document.write('No cast for widening complex float expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>452 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s452">') + =
+document.write('No cast for widening complex int expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>456 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s456">') + =
+document.write('Implicit float widening for function return.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>457 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s457">') + =
+document.write('Implicit int widening for function return.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>458 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s458">') + =
+document.write('Implicit conversion: actual to formal param.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>465 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s465">') + =
+document.write('Struct/union not completely specified.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>477 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s477">') + =
+document.write('Empty else clause following else if.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>479 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s479">') + =
+document.write('Right shift loses all bits.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>480 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s480">') + =
+document.write('String function params access same variable.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>481 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s481">') + =
+document.write('Array with no bounds in struct.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>482 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s482">') + =
+document.write('Incomplete structure referenced.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>488 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s488">') + =
+document.write('Value outside range of underlying type.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>490 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s490">') + =
+document.write('No cast for widening float parameter.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>491 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s491">') + =
+document.write('No cast for widening int parameter.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>496 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s496">') + =
+document.write('Function call with no prior declaration.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(M) Mandatory Standards </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>497 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s497">') + =
+document.write('Type is incomplete in translation unit.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>545 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s545">') + =
+document.write('Assignment of overlapping storage.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>553 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s553">') + =
+document.write('Function and proto should both be static.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>2 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d2">') + =
+document.write('Function does not return a value on all paths.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>5 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d5">') + =
+document.write('Procedure contains UR data flow anomalies.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>17 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d17">') + =
+document.write('Identifier not unique within 31 characters.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>24 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d24">') + =
+document.write('Procedure definition has no associated prototype.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>26 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d26">') + =
+document.write('Variable should be defined once in only one file.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>35 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d35">') + =
+document.write('Expression has side effects.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>36 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d36">') + =
+document.write('Prototype and definition name mismatch.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>41 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d41">') + =
+document.write('Procedure call has no prototype declared.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>54 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d54">') + =
+document.write('Unsafe use of function pointer variable.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup55D.htm">1</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>55 D </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d55">') + =
+document.write('Modification of loop counter in loop body.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>60 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d60">') + =
+document.write('External object should be declared only once.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>61 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d61">') + =
+document.write('Procedure should be declared static.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup63D.htm">1</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>63 D </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d63">') + document.write('No =
+definition in system for prototyped procedure.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>66 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d66">') + =
+document.write('Non boolean control variable modified in loop.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>69 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d69">') + =
+document.write('Procedure contains UR data flow anomalies.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>1 X </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_x1">') + =
+document.write('Declaration types do not match across a system.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>1 Q </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_q1">') + =
+document.write('Call has execution order dependant side effects.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>1 U </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_u1">') + =
+document.write('Inter-file recursion found.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>1 J </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_j1">') + =
+document.write('Unreachable Code found.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(C) Checking (Mandatory) Standards </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>1 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s1">') + =
+document.write('Procedure name reused.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>30 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s30">') + =
+document.write('Deprecated usage of ++ or -- operators found.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>57 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s57">') + =
+document.write('Statement with no side effect.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>134 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s134">') + =
+document.write('Volatile variable in complex expression.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>139 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s139">') + =
+document.write('Construct leads to infeasible code.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>183 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s183">') + =
+document.write('No newline after semi colon.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>243 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s243">') + =
+document.write('Included file not protected with #define.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>269 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s269">') + =
+document.write('Empty increment exprsn in for loop.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>270 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s270">') + =
+document.write('For loop initialisation is not simple.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3D#ff8181 align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER><A onclick=3D'return popup(this, "knotes")'=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9_link_popup271S.htm">1</A>=20
+      </CENTER></FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>271 S </FONT></TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s271">') + =
+document.write('For loop incrementation is not simple.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>287 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s287">') + =
+document.write('Variable definitions in header file.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>7 C </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_c7">') + =
+document.write('Procedure has more than one exit point.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>18 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d18">') + =
+document.write('Identifier name reused.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(O) Optional Standards </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>25 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s25">') + =
+document.write('Null case(s) in switch statement.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>54 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s54">') + =
+document.write('Sizeof operator with side effects.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>59 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s59">') + =
+document.write('Else alternative missing in if.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>68 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s68">') + =
+document.write('#undef used.') + document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>80 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s80">') + =
+document.write('Pointer indirection exceeds 2 levels.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>87 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s87">') + =
+document.write('Use of pointer arithmetic.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>88 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s88">') + =
+document.write('Procedure is not pure assembler.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3Dyellow align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER>1 </CENTER></FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>91 S </FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s91">') + =
+document.write('Name redeclared in another C name space (MR).') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>92 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s92">') + =
+document.write('Duplicate use of a name in an enumeration.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3Dyellow align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER>9 </CENTER></FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>93 S </FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s93">') + =
+document.write('Value is not of appropriate type.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>99 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s99">') + =
+document.write('Function use is not a call.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD>
+      <CENTER>MR </CENTER></TD>
+    <TD>111 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s111">') + =
+document.write('Label is not part of switch statement (MR).') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>121 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s121">') + =
+document.write('Use of boolean expression in switch.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>128 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s128">') + =
+document.write('Parameter has same name as global variable.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>129 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s129">') + =
+document.write('Parameter has same name as type or tag.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>136 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s136">') + =
+document.write('Bit operator with boolean operand.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>137 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s137">') + =
+document.write('Bit operator acting on boolean value.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>176 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s176">') + =
+document.write('Non standard escape sequence in source.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>203 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s203">') + =
+document.write('Cast on a constant value.') + document.write('</a>') =
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>218 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s218">') + =
+document.write('Name is used in standard libraries.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>226 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s226">') + =
+document.write('Bit field is not octal, hex or suffix u.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>276 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s276">') + =
+document.write('Case is not part of switch enumeration.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>327 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s327">') + =
+document.write('Reuse of struct or class member name.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>383 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s383">') + =
+document.write('Identifier name matches macro name.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>495 S </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_s495">') + =
+document.write('Typedef name has no size indication.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>6 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d6">') + =
+document.write('Recursion in procedure calls found.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD bgColor=3Dyellow align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER>7 </CENTER></FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>25 D </FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d25">') + =
+document.write('Scope of variable could be reduced.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=3Dyellow align=3Dmiddle ,><FONT color=3Dblue>
+      <CENTER>8 </CENTER></FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>27 D </FONT></TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d27">') + =
+document.write('Variable should be declared static.') + =
+document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD align=3Dmiddle>
+      <CENTER>0 </CENTER></TD>
+    <TD>62 D </TD>
+    <TD>
+      <SCRIPT language=3Djavascript> document.write(base_str + =
+'standards_info/html/standards.htm#standard_d62">') + =
+document.write('Pointer parameter should be declared const.') + =
+document.write('</a>') </SCRIPT>
+    </TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TD>Number of Mandatory Standards checked </TD>
+    <TD align=3Dmiddle>172 </TD></TR>
+  <TR>
+    <TD>Number of Checking Standards checked </TD>
+    <TD align=3Dmiddle>13 </TD></TR>
+  <TR>
+    <TD>Number of Optional Standards checked </TD>
+    <TD align=3Dmiddle>29 </TD></TR>
+  <TR>
+    <TD>Total Standards checked </TD>
+    <TD align=3Dmiddle>214 </TD></TR></TBODY></TABLE></CENTER><BR><BR><A =
+
+name=3Dbalise_proc_adap.c></A><BR><BR>
+<P class=3Dpagebreak><BR>
+<P><BR>
+<HR width=3D"100%">
+<FONT color=3D#ff0000>
+<CENTER>
+<H3>OVERALL RESULT: FAIL</H3></CENTER></FONT>
+<HR width=3D"100%">
+<BR><A name=3Dprocedure_table></A><BR>Out of 3 program components, 0 =
+(0.00 %) pass=20
+( of which 0 conditionally pass ) and 3 fail ( of which 0 fail only =
+because of=20
+insufficient comments ) <BR><BR>
+<H4>Procedure Results </H4>
+<CENTER>
+<TABLE border=3D1 width=3D"80%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE width=3D"100%" bgColor=3D#ece2e2>
+        <TBODY>
+        <TR>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH></TR>
+        <TR align=3Dleft>
+          <TH colSpan=3D11><TT>Code Review Result </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"19%" colSpan=3D11><TT>Procedure </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"19%" colSpan=3D11><TT>Source File </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"19%" colSpan=3D11><TT><A=20
+            =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#unq_key">Unique=20
+            Violations</A> </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"19%" colSpan=3D11><TT><A=20
+            =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#unq_key">Failure=20
+            Density</A> </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH></TR>
+        <TR align=3Dleft>
+          <TH width=3D"79%" colSpan=3D44><TT>&nbsp; </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH colSpan=3D11><TT>(Viols/R.Line %) </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH></TR>
+        <TR align=3Dleft>
+          <TD colSpan=3D11><FONT color=3D#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=3D11><A=20
+            =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#global_prog">Global=20
+            Program</A> </TD>
+          <TD></TD></TR>
+        <TR align=3Dleft>
+          <TD colSpan=3D11><FONT color=3D#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=3D11><A=20
+            =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#balise_proc_pre_adapter_balise_proc_adap.c_balise=
+_proc_adap.c_1">balise_proc_pre_adapter</A>=20
+          </TD>
+          <TD></TD>
+          <TD colSpan=3D11>balise_proc_adap.c </TD>
+          <TD></TD>
+          <TD bgColor=3D#e17b87>8 </TD>
+          <TD bgColor=3D#afe1ab colSpan=3D10><FONT color=3D#afe1ab>- =
+</FONT></TD>
+          <TD></TD>
+          <TD bgColor=3D#e17b87>6 </TD>
+          <TD bgColor=3D#afe1ab colSpan=3D10><FONT color=3D#afe1ab>- =
+</FONT></TD>
+          <TD></TD></TR>
+        <TR align=3Dleft>
+          <TD colSpan=3D11><FONT color=3D#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=3D11><A=20
+            =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#balise_proc_adapter_balise_proc_adap.c_balise_pro=
+c_adap.c_2">balise_proc_adapter</A>=20
+          </TD>
+          <TD></TD>
+          <TD colSpan=3D11>balise_proc_adap.c </TD>
+          <TD></TD>
+          <TD bgColor=3D#e17b87 colSpan=3D10>92 </TD>
+          <TD bgColor=3D#afe1ab><FONT color=3D#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=3D#e17b87>9 </TD>
+          <TD bgColor=3D#afe1ab colSpan=3D10><FONT color=3D#afe1ab>- =
+</FONT></TD>
+          =
+<TD></TD></TR></TD></TR></TBODY></TABLE></TR></TBODY></TABLE></CENTER><BR=
+><BR>
+<H4><A name=3Dglobal_prog>Global Information </A></H4><BR>
+<H4><IMG src=3D"" width=3D"5%" height=3D1> Global Basic Information =
+</H4>
+<CENTER>
+<TABLE border=3D1 width=3D"60%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TD>Number of procedures: </TD>
+    <TD align=3Dmiddle>2 </TD></TR>
+  <TR>
+    <TD>Number of locally uncalled procedures: </TD>
+    <TD align=3Dmiddle>0 </TD></TR>
+  <TR>
+    <TD>Maximum loop depth: </TD>
+    <TD align=3Dmiddle>1 </TD></TR>
+  <TR>
+    <TD>Total Cyclomatic Complexity: </TD>
+    <TD align=3Dmiddle>43 </TD></TR>
+  <TR>
+    <TD>Number of reformatted executable lines: </TD>
+    <TD align=3Dmiddle>479 </TD></TR>
+  <TR>
+    <TD>Number of lines of comments: </TD>
+    <TD align=3Dmiddle>19994 </TD></TR></TBODY></TABLE></CENTER><BR>
+<HR>
+<A name=3Dprocedure_reports></A><BR>
+<CENTER>
+<H2>Summary Report on all Program Components which FAIL =
+</H2></CENTER><BR><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"50%">
+  <TBODY>
+  <TR>
+    <TH bgColor=3D#ff0000><FONT color=3D#fbfcc8 size=3D5>Globals / code =
+outside=20
+      procedures - FAIL </FONT></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><IMG src=3D"" width=3D"5%" height=3D1> Standards Violation Summary =
+</H4>
+<CENTER>
+<TABLE border=3D1 width=3D"60%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Src Line </TH>
+    <TH>Violation </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD>&nbsp; </TD>
+    <TD>Use of single line comment(s) //. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>58 </TD>
+    <TD>Scope of variable could be reduced. : s_appl_balise_adap_buf =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>60 </TD>
+    <TD>Scope of variable could be reduced. : s_balise_proc_id =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>64 </TD>
+    <TD>Scope of variable could be reduced. : s_appl_balise_total_num =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>65 </TD>
+    <TD>Scope of variable could be reduced. : =
+s_appl_oppo_accu_last_balise_id=20
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>66 </TD>
+    <TD>Scope of variable could be reduced. : =
+s_appl_oppo_accu_mainbaliseflag=20
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>67 </TD>
+    <TD>Scope of variable could be reduced. : s_appl_oppo_accu_ar_status =
+
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>69 </TD>
+    <TD>Scope of variable could be reduced. : =
+s_appl_zero_v_valid_balise_id=20
+  </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>58 </TD>
+    <TD>Variable should be declared static. : s_appl_balise_adap_buf =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>60 </TD>
+    <TD>Variable should be declared static. : s_balise_proc_id =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>62 </TD>
+    <TD>Variable should be declared static. : s_appl_raw_balise_info =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>64 </TD>
+    <TD>Variable should be declared static. : s_appl_balise_total_num =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>65 </TD>
+    <TD>Variable should be declared static. : =
+s_appl_oppo_accu_last_balise_id=20
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>66 </TD>
+    <TD>Variable should be declared static. : =
+s_appl_oppo_accu_mainbaliseflag=20
+    </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>67 </TD>
+    <TD>Variable should be declared static. : s_appl_oppo_accu_ar_status =
+
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle>O </TD>
+    <TD align=3Dmiddle>69 </TD>
+    <TD>Variable should be declared static. : =
+s_appl_zero_v_valid_balise_id=20
+  </TD></TR>
+  <TR>
+    <TD align=3Dmiddle><A name=3Dfirst_63_d>M</A> </TD>
+    <TD align=3Dmiddle>81 </TD>
+    <TD>No definition in system for prototyped procedure. :=20
+      baliseprocadap_check_balise_pos =
+</TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE bgColor=3D#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#top_of_rep">Top=20
+      of Report</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#key_to_terms">Key=20
+      to Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#procedure_table">Procedure=20
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#contents">Contents</A>=20
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/break_p.gif">') }else{ document.write(temp_str + =
+'break_p.gif">') }</SCRIPT>
+</CENTER><BR><BR><A=20
+name=3Dbalise_proc_pre_adapter_balise_proc_adap.c_balise_proc_adap.c_1></=
+A><BR>
+<HR width=3D"60%">
+<BR>
+<CENTER>
+<TABLE border=3D1 width=3D"50%">
+  <TBODY>
+  <TR>
+    <TH bgColor=3D#ff0000><FONT size=3D5><A class=3Dset1=20
+      =
+href=3D"javascript:TBLaunchit('C:\\Users\\Q\\Desktop\\CBTC2.0_ATP_testbed=
+_v1.6.0_P4_1.3.0\\CBTC2.0_ATP\\app\\jingtai\\balise_proc_adap.c' , =
+'102');">balise_proc_pre_adapter<BR>(102=20
+      to 123 balise_proc_adap.c) - FAIL=20
+</FONT></A></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><IMG src=3D"" width=3D"5%" height=3D1> Standards Violation Summary =
+</H4>
+<CENTER>
+<TABLE border=3D1 width=3D"60%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Line </TH>
+    <TH>Violation </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>116 </TD>
+    <TD>Type conversion without cast. : (unsigned char and bool): ( 1U ) =
+=3D=3D=20
+      g_appl_power_on_flag </TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE bgColor=3D#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#top_of_rep">Top=20
+      of Report</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#key_to_terms">Key=20
+      to Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#procedure_table">Procedure=20
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#contents">Contents</A>=20
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/break_p.gif">') }else{ document.write(temp_str + =
+'break_p.gif">') }</SCRIPT>
+</CENTER><BR><BR><A=20
+name=3Dbalise_proc_adapter_balise_proc_adap.c_balise_proc_adap.c_2></A><B=
+R>
+<HR width=3D"60%">
+<BR>
+<CENTER>
+<TABLE border=3D1 width=3D"50%">
+  <TBODY>
+  <TR>
+    <TH bgColor=3D#ff0000><FONT size=3D5><A class=3Dset1=20
+      =
+href=3D"javascript:TBLaunchit('C:\\Users\\Q\\Desktop\\CBTC2.0_ATP_testbed=
+_v1.6.0_P4_1.3.0\\CBTC2.0_ATP\\app\\jingtai\\balise_proc_adap.c' , =
+'141');">balise_proc_adapter<BR>(141=20
+      to 512 balise_proc_adap.c) - FAIL=20
+</FONT></A></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><IMG src=3D"" width=3D"5%" height=3D1> Standards Violation Summary =
+</H4>
+<CENTER>
+<TABLE border=3D1 width=3D"60%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Violation </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD>Use of single line comment(s) //. =
+</TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"60%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Line </TH>
+    <TH>Violation </TH></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>145 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>146 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>157 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>160 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>162 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>184 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>185 </TD>
+    <TD>Comment possibly contains code. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>211 </TD>
+    <TD>Non standard character ?in source. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>250 </TD>
+    <TD>Non standard character ?in source. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>254 </TD>
+    <TD>Non standard character ?in source. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle><A name=3Dfirst_271_s>C</A> </TD>
+    <TD align=3Dmiddle>313 </TD>
+    <TD>For loop incrementation is not simple. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>328 </TD>
+    <TD>Shifting value too far. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>328 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>328 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t ) 10U </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>329 </TD>
+    <TD>Shifting value too far. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>329 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>329 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t ) 10U </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>347 </TD>
+    <TD>Shifting value too far. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>347 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>347 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t ) 10U </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>348 </TD>
+    <TD>Shifting value too far. </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>348 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>348 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and unsigned =
+int): (=20
+      uint32_t ) 10U </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>432 </TD>
+    <TD>Type conversion without cast. : (unsigned char and bool): ( 0U ) =
+=3D=3D=20
+      s_appl_oppo_accu_mainbaliseflag </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>474 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and bool): ( 1U ) =
+!=3D=20
+      p_track_pos_info -&gt; train_pos_formed </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>474 </TD>
+    <TD>Type conversion without cast. : (unsigned char and bool): ( 1U ) =
+=3D=3D=20
+      s_appl_oppo_accu_mainbaliseflag </TD></TR>
+  <TR>
+    <TD align=3Dmiddle>M </TD>
+    <TD align=3Dmiddle>489 </TD>
+    <TD>Use of mixed mode arithmetic. : (unsigned char and bool): ( 1U ) =
+=3D=3D=20
+      p_run_state_info -&gt; opposite_atp_accu_correct_flag </TD></TR>
+  <TR>
+    <TD align=3Dmiddle><A name=3Dfirst_120_s>M</A> </TD>
+    <TD align=3Dmiddle>501 </TD>
+    <TD>Use of bit operator on signed type. : &amp; used with int =
+</TD></TR>
+  <TR>
+    <TD align=3Dmiddle><A name=3Dfirst_98_s>M</A> </TD>
+    <TD align=3Dmiddle>484 </TD>
+    <TD>Actual and formal parameters inconsistent (MR). </TD></TR>
+  <TR>
+    <TD align=3Dmiddle><A name=3Dfirst_55_d>M</A> </TD>
+    <TD align=3Dmiddle>467 </TD>
+    <TD>Modification of loop counter in loop body. : s_balise_proc_id=20
+  </TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE bgColor=3D#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#top_of_rep">Top=20
+      of Report</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#key_to_terms">Key=20
+      to Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#procedure_table">Procedure=20
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#contents">Contents</A>=20
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/break_p.gif">') }else{ document.write(temp_str + =
+'break_p.gif">') }</SCRIPT>
+</CENTER><BR><BR><A name=3Dkey_to_terms></A><BR>
+<CENTER>
+<H2>Key to Terms </H2></CENTER><BR>
+<H4>Standards violations for procedures are printed in tables with code =
+markers=20
+as follows: </H4><BR>
+<CENTER>
+<TABLE border=3D1 bgColor=3D#d7eded>
+  <TBODY>
+  <TR align=3Dmiddle>
+    <TH>Code </TH>
+    <TH>(Line) </TH>
+    <TH>Violation </TH></TR>
+  <TR align=3Dmiddle>
+    <TD>M </TD>
+    <TD>(Source line number) </TD>
+    <TD>[Text of Mandatory standard] </TD></TR>
+  <TR align=3Dmiddle>
+    <TD>C </TD>
+    <TD>&nbsp;</TD>
+    <TD>[Text of Checking standard] </TD></TR>
+  <TR align=3Dmiddle>
+    <TD>O </TD>
+    <TD>&nbsp;</TD>
+    <TD>[Text of Optional standard] </TD></TR>
+  <TR align=3Dmiddle>
+    <TH colSpan=3D3><CODE>[Source: Text of line from Source file]=20
+  </CODE></TH></TR></TBODY></TABLE></CENTER><BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Checking=20
+standards are considered mandatory but individual instances may be =
+overridden by=20
+adding annotations to the source code <BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Optional=20
+standards provide additional quality criteria but may be violated =
+<BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;For=20
+some standards violations, additional information is provided in results =
+tables=20
+<BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Note=20
+that source lines do not show macro expansions <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;"Off"=20
+in Summary tables indicates that a standard is switched off in the =
+<LANG>pen.dat=20
+file <BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;"MR"=20
+in Summary tables indicates a MISRA Restricted standard which cannot be =
+checked=20
+without the MISRA licence option. <BR><BR><BR>
+<H4>A summary is given of the pass/fail result of each program component =
+as=20
+follows: </H4><BR>
+<CENTER>
+<TABLE bgColor=3D#d7eded>
+  <TBODY>
+  <TR>
+    <TD>Components which pass all standards are marked: </TD>
+    <TD bgColor=3Dgreen ,><FONT color=3Dwhite>Pass </FONT></TD></TR>
+  <TR>
+    <TD>Components which fail only Optional standards are marked: </TD>
+    <TD bgColor=3Dyellow ,><FONT color=3Dblue>Conditional Pass =
+</FONT></TD></TR>
+  <TR>
+    <TD>Components which fail on insufficient comments only are marked: =
+</TD>
+    <TD bgColor=3Dorange ,><FONT color=3Dblue>Comment FAIL =
+</FONT></TD></TR>
+  <TR>
+    <TD>Components which violate Mandatory standards are marked: </TD>
+    <TD bgColor=3D#ff8181 ,><FONT color=3Dblue>FAIL=20
+</FONT></TD></TR></TBODY></TABLE></CENTER><BR><A =
+name=3Dunq_key></A><BR><BR>
+<H4>Procedure Results table breakdown (Example Only) </H4><BR>
+<CENTER>
+<TABLE border=3D1 width=3D"60%" bgColor=3D#ece2e2>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE width=3D"100%" bgColor=3D#ece2e2>
+        <TBODY>
+        <TR>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH>
+          <TH width=3D5></TH></TR>
+        <TR align=3Dleft>
+          <TH colSpan=3D11><TT>Unique Violations </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH width=3D"49%" colSpan=3D11><TT>Failure Density </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH></TR>
+        <TR align=3Dleft>
+          <TH width=3D"49%" colSpan=3D11><TT>&nbsp; </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH>
+          <TH colSpan=3D11><TT>(Viols/R.Line %) </TT></TH>
+          <TH width=3D"1%">&nbsp;</TH></TR>
+        <TR align=3Dleft>
+          <TD bgColor=3D#e17b87 colSpan=3D7>65 </TD>
+          <TD bgColor=3D#afe1ab colSpan=3D4><FONT color=3D#afe1ab>- =
+</FONT></TD>
+          <TD></TD>
+          <TD bgColor=3D#e17b87 colSpan=3D11><FONT color=3Dwhite>150 =
+</FONT></TD>
+          <TD></TD></TR>
+        <TR align=3Dleft>
+          <TD bgColor=3D#e17b87 colSpan=3D4>35 </TD>
+          <TD bgColor=3D#afe1ab colSpan=3D7><FONT color=3D#afe1ab>- =
+</FONT></TD>
+          <TD></TD>
+          <TD bgColor=3D#e17b87 colSpan=3D4>39 </TD>
+          <TD bgColor=3D#afe1ab colSpan=3D7><FONT color=3D#afe1ab>- =
+</FONT></TD>
+          =
+<TD></TD></TR></TD></TR></TBODY></TABLE></TR></TBODY></TABLE></CENTER><BR=
+><BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;The=20
+Violation density for a function is the number of violations per =
+reformatted=20
+line, expressed as a percentage. <BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;It=20
+is an indication of code quality. <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Functions=20
+with a high violation density are likely to be smaller functions with a =
+large=20
+number of violations. <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Lower=20
+density may indicate larger functions with fewer violations. =
+<BR><BR><FONT=20
+color=3D#6571c9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(nViols=20
+/ nRefLines) x 100 <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;where:=20
+<BR><BR><FONT=20
+color=3D#6571c9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nViols=20
+=3D number of standard violations in a function. <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;and:=20
+<BR><BR><FONT=20
+color=3D#6571c9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRefLines=20
+=3D number of reformatted lines in a function. <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;The=20
+unique standards failure ratio is an indication of variety of standards=20
+violations in a module. <BR><BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;Thus=20
+a function containing one instance of several different standards will =
+have a=20
+high ratio, <BR><FONT=20
+color=3Dblack>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;while=20
+a function that has violated only one standards will have a low ratio. =
+<BR><BR>
+<HR>
+
+<CENTER>
+<TABLE bgColor=3D#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#top_of_rep">Top=20
+      of Report</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#procedure_table">Procedure=20
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A=20
+      =
+href=3D"file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/bal=
+ise_proc_adap_9.rpf.htm#contents">Contents</A>=20
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<SCRIPT language=3DJavascript>if((navigator.appName =3D=3D 'Netscape') =
+|| (ie_ver =3D=3D 6)){ document.write('<img =
+src=3D"../images/break_p.gif">') }else{ document.write(temp_str + =
+'break_p.gif">') }</SCRIPT>
+</CENTER><BR>
+<CENTER>
+<H3>End of Code Review Report </H3></CENTER>
+<CENTER>
+<H3></H3></CENTER>
+<CENTER>
+<H3>Copyright &copy; 2013 Liverpool Data Research Associates =
+</H3></CENTER>
+<CENTER>
+<SCRIPT language=3DJavascript>document.write(temp_str + 'blue_line.gif" =
+width=3D80% height=3D10>')</SCRIPT>
+</CENTER>
+<SCRIPT language=3DJavascript>
+<!--
+if(navigator.appName =3D=3D "Netscape"){ document.write("\<!--") }
+// -->
+</SCRIPT>
+
+<OBJECT id=3DLDRATBLaunch =
+classid=3DCLSID:58FEBB79-70F5-48A6-9697-E91591DA3F8E><PARAM =
+NAME=3D"ImageLoc" VALUE=3D"Null"><PARAM NAME=3D"Run" =
+VALUE=3D"NULL"><PARAM NAME=3D"RunParms" VALUE=3D"NULL"></OBJECT>
+<SCRIPT language=3DJavascript>
+<!--
+if(navigator.appName =3D=3D "Netscape"){ document.write("--\>") }
+else { document.write("\<!--") }
+// -->
+</SCRIPT>
+<EMBED id=3DLDRATBLaunch type=3Dapplication/x-eskerplus =
+AndRestore=3D"True"=20
+onEvent2(arg1,arg2,arg3)=3D"handler2(arg1,arg2,arg3)" =
+onEvent1()=3D"handler1()"=20
+RunParms=3D"NULL" Run=3D"NULL" ImageLoc=3D"NULL"=20
+classid=3D"clsid:58FEBB79-70F5-48A6-9697-E91591DA3F8E">
+<SCRIPT language=3DJavascript>
+<!--
+if(navigator.appName !=3D "Netscape"){ document.write("--\>") }
+// -->
+</SCRIPT>
+=20
+</FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></F=
+ONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></BODY></HTML>
+
+------=_NextPart_000_0000_01D551F4.CB520D80
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///D:/00-LDRA/LDRA_Workarea/ATP_v1.6.0_P4_1.3.0_tbwrkfls/imagejs.js
+
+var temp_str =3D'<img src=3D"file://C:\\LDRA_Toolsuite\\images/';
+var base_str =3D'<a href=3D"file://C:\\LDRA_Toolsuite\\';
+function TBLaunchit(eParam, eOtherParam)
+{
+var RunLine;
+RunLine=3D  '"' + =
+'C:\\LDRA_Toolsuite\\utils\\VS_DOTNET_PLUGIN\\StartVStudio.exe' + '"| '
+ + '"' + eParam + '"'   + ' ' + eOtherParam + ' ';
+LDRATBLaunch.ExecuteIt(RunLine);
+}
+
+function TBBrowseit_2(eParam, eOtherParam)
+{
+var RunLine;
+RunLine=3D  '"' + 'C:\\LDRA_Toolsuite\\tbbrowse.exe' + '"| '
+ + '"' + eParam + '"'   + ' -Start=3D' + eOtherParam + ' -End=3D' + =
+eOtherParam + ' -Language=3D2' + '';
+LDRATBLaunch.ExecuteIt(RunLine);
+}
+
+function TBBrowseit_h_2(eParam, eOtherParam, h_start_end)
+{
+var RunLine;
+RunLine=3D  '"' + 'C:\\LDRA_Toolsuite\\tbbrowse.exe' + '"| '
+ + '"' + eParam + '"'   + ' -Start=3D' + eOtherParam + ' -End=3D' + =
+eOtherParam + ' -Language=3D2' + ' -IncludeLines=3D' + h_start_end + '';
+LDRATBLaunch.ExecuteIt(RunLine);
+}
+
+function TBBrowseit_6(eParam, eOtherParam)
+{
+var RunLine;
+RunLine=3D  '"' + 'C:\\LDRA_Toolsuite\\tbbrowse.exe' + '"| '
+ + '"' + eParam + '"'   + ' -Start=3D' + eOtherParam + ' -End=3D' + =
+eOtherParam + ' -Language=3D6' + '';
+LDRATBLaunch.ExecuteIt(RunLine);
+}
+
+function TBBrowseit_h_6(eParam, eOtherParam, h_start_end)
+{
+var RunLine;
+RunLine=3D  '"' + 'C:\\LDRA_Toolsuite\\tbbrowse.exe' + '"| '
+ + '"' + eParam + '"'   + ' -Start=3D' + eOtherParam + ' -End=3D' + =
+eOtherParam + ' -Language=3D6' + ' -IncludeLines=3D' + h_start_end + '';
+LDRATBLaunch.ExecuteIt(RunLine);
+}
+
+function TBBrowseit_var_para (eParam, eOtherParam, eOtherParam2)
+{
+var RunLine;
+RunLine=3D  '"' + 'C:\\LDRA_Toolsuite\\tbbrowse.exe' + '"| '
+ + '"' + eParam + '"' + " -" + eOtherParam + '=3D' + '"' +  eOtherParam2 =
++ '"'  + '' ;
+LDRATBLaunch.ExecuteIt(RunLine);
+}
+
+var ie_ver =3D getIE_ver();
+function getIE_ver()
+{
+var ret =3D -1;
+if (navigator.appName =3D=3D 'Microsoft Internet Explorer')
+{
+var ua =3D navigator.userAgent;
+var re =3D new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})");
+if (re.exec(ua) !=3D null)
+{
+ret =3D parseFloat( RegExp.$1 );
+}
+}
+return ret;
+}
+
+------=_NextPart_000_0000_01D551F4.CB520D80--
