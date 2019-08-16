@@ -1,0 +1,3 @@
+在Run.py中 Main入口函数中
+           a.items 设置那些要测试的函数
+           a.run("Cyclomatic.txt") 设置圈复杂度结果文本存储所在路径
