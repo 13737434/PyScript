@@ -1,0 +1,7 @@
+可操作的文件类型.mht结尾  LDRA Testbed Code Review Report
+
+批量操作的路径 导入 默认****** C:\\Users\\v5682\\Desktop\\新建文件夹 *****   批量导入时在ProductSome.py中main中修改
+              导出 默认****** C:\\Users\\v5682\\Desktop\\" + self.theSameItem.file_name + "-静态不符合项列表.xlsx ****** 在 ProductOne.py中修改data_write函数
+
+单个操作的路径 导入 默认****** C:\\Users\\v5682\\Desktop\\test.mht *****   批量导入时在ProductOne.py中main中修改
+              导出 默认****** C:\\Users\\v5682\\Desktop\\" + self.theSameItem.file_name + "-静态不符合项列表.xlsx ****** 在 ProductOne.py中修改data_write函数
