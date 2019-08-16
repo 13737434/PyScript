@@ -7,8 +7,8 @@ class ProductOne:
         self.theSameItem=TheSameItem()
 
     #获取 XXXXX.mht 中的文本
-    def getString(self,filename):
-        with open(filename,'r') as f:
+    def getString(self, url):
+        with open(url, 'r') as f:
             text=f.read()
         return text
 
