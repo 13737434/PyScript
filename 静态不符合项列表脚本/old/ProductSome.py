@@ -1,5 +1,5 @@
 import os
-from 静态不符合项列表脚本.ProductOne import ProductOne
+from 静态不符合项列表脚本.old.ProductOne import ProductOne
 class ProductSome:
     #遍历某文件夹下的所有.mht文件
     def selectFile(self,file_dir):
@@ -22,7 +22,7 @@ class ProductSome:
 
 if __name__ == '__main__':
     a=ProductSome()
-    lists=a.selectFile("C:\\Users\\v5682\\Desktop\\新建文件夹")
+    lists=a.selectFile("C:\\Users\\v5682\\Desktop\\233")
     a.getAllReport(lists)
     print("finish")
 

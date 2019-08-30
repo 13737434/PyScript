@@ -1,6 +1,6 @@
 import re
-from openpyxl import Workbook, load_workbook
-from 静态不符合项列表脚本.TestItem import TheSameItem
+from openpyxl import load_workbook
+from 静态不符合项列表脚本.old.TestItem import TheSameItem
 
 class ProductOne:
     def __init__(self):
@@ -15,7 +15,7 @@ class ProductOne:
     #获取文件名
     def getFileName(self,str):
         pattern=re.compile(r'<H1>File.*\\(.*?)\.c.*?</H1>',re.S)
-        file_name=re.findall(pattern,str)[0]
+        file_name=re.findall(pattern,str)[0].replace("\n", "").replace("=", "")
         return file_name
 
     #解析红色部分
@@ -37,10 +37,10 @@ class ProductOne:
         i=2
         for item in items:
             ws["A"+str(i)]=i-1
-            ws["B"+str(i)]= self.theSameItem.file_name + ".c"
+            ws["B"+str(i)]= self.theSameItem.file_name+ ".c"
             ws["C"+str(i)]=self.theSameItem.test_skill
-            ws["D"+str(i)]=item[1]+':'+item[2]
-            ws["E"+str(i)]=item[0]
+            ws["D"+str(i)]=item[1].replace("\n", "").replace("=", "")+':'+item[2].replace("\n", "").replace("=", "")
+            ws["E"+str(i)]=item[0].replace("\n", "").replace("=", "")
             ws["F"+str(i)]=self.theSameItem.disqualification_lv
             ws["G"+str(i)]=self.theSameItem.verify_time
             ws["H"+str(i)]=self.theSameItem.deal_way
@@ -49,7 +49,7 @@ class ProductOne:
             ws["K"+str(i)]=self.theSameItem.test_person
             ws["L"+str(i)]=self.theSameItem.state
             i+=1
-        wb.save("C:\\Users\\v5682\\Desktop\\" + self.theSameItem.file_name + "-静态不符合项列表.xlsx")  #保存
+        wb.save("C:\\Users\\v5682\\Desktop\\新建文件夹\\" + self.theSameItem.file_name + "-静态不符合项列表.xlsx")  #保存
 
     #生成一份报告
     def getOneReport(self,url):
@@ -62,4 +62,4 @@ class ProductOne:
 
 if __name__ == '__main__':
     a=ProductOne()
-    a.getOneReport("C:\\Users\\v5682\\Desktop\\test.mht")
+    a.getOneReport("C:\\Users\\v5682\\Desktop\\233\\LDRA Testbed Code Review Report (2).mht")

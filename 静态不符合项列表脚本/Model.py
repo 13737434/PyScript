@@ -1,0 +1,14 @@
+class Model:
+    def __init__(self,VerifyTime,DealWay,Explanation,ConfirmPerson,TestPerson,Stated):
+        self.no=''   #序号
+        self.filename=''  #文件名
+        self.testskill='编码规则检查'  #测试技术
+        self.disqualification=''  #不合格项
+        self.disqualificationnum=''  #不合格项个数
+        self.disqualificationlv='建议'  #不合格项等级
+        self.verifytime=VerifyTime #验证时间
+        self.dealway=DealWay #处理方式
+        self.explanation=Explanation #研发说明
+        self.confirmperson=ConfirmPerson #研发确认
+        self.testperson=TestPerson #测试者
+        self.stated=Stated #状态
