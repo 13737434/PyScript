@@ -1,5 +1,7 @@
 import re
+import openpyxl
 from openpyxl import load_workbook
+from openpyxl.styles import Font,Alignment,Border,Side
 class Deal:
     def __init__(self,Model):
         self.model=Model
@@ -21,7 +23,7 @@ class Deal:
         pattern=re.compile('<TR>.*?bgColor=3D#ff8181.*?\.htm">(.*?)</A>.*?color=3Dblue>(.*?)</FONT>.*?\.write\(\'(.*?)\'\).*?</FONT></TD></TR>',re.S)
         items=re.findall(pattern,str)
         return items
-    #解析蓝色部分
+    #解析黄色部分
     def parseYellowString(self,str):
         pattern=re.compile('<TR>.*?bgColor=3Dyellow.*?<CENTER>(.*?)</CENTER>.*?3Dblue>(.*?)</FONT>.*?write\(\'(.*?)\'\).*?</FONT></TD></TR>',re.S)
         items=re.findall(pattern,str)
@@ -29,9 +31,45 @@ class Deal:
 
     #写入 Excel 文档
     def dataWrite(self,items,savepath):
-        #wb=Workbook() #创建Excel文件对象
-        wb=load_workbook('Demo.xlsx')  #获取Excel文件对象
+        wb=openpyxl.Workbook()#创建Excel文件对象
+        #wb=load_workbook('Demo.xlsx')  #获取Excel文件对象
         ws=wb.active #获取第一个sheet
+        ws["A1"]='序号'
+        ws["B1"]='文件名'
+        ws["C1"]='测试技术'
+        ws["D1"]='不合格项'
+        ws["E1"]='不合格项个数'
+        ws["F1"]='不合格项等级'
+        ws["G1"]='验证时间'
+        ws["H1"]='处理方式'
+        ws["I1"]='研发说明内容'
+        ws["J1"]='研发确认'
+        ws["K1"]='测试者'
+        ws["L1"]='状态'
+        '''设置列宽'''
+        ws.column_dimensions['A'].width = 8
+        ws.column_dimensions['B'].width = 17
+        ws.column_dimensions['C'].width = 17
+        ws.column_dimensions['D'].width = 64
+        ws.column_dimensions['E'].width = 8
+        ws.column_dimensions['F'].width = 8
+        ws.column_dimensions['G'].width = 10
+        ws.column_dimensions['H'].width = 8
+        ws.column_dimensions['I'].width = 19
+        ws.column_dimensions['J'].width = 8
+        ws.column_dimensions['K'].width = 8
+        ws.column_dimensions['L'].width = 8
+
+        '''设置单元格格式'''
+        for nn in ['A','B','C','D','E','F','G','H','I','J','K','L']:
+            ws[nn+'1'].alignment = Alignment(horizontal='center', vertical='center',wrap_text=True) #水平、竖直对齐 自动换行
+            ws[nn+'1'].font=Font(name='宋体', size=11)
+            border = Border(left=Side(border_style='thin',color='000000'),
+                        right=Side(border_style='thin',color='000000'),
+                        top=Side(border_style='thin',color='000000'),
+                        bottom=Side(border_style='thin',color='000000'))
+            ws[nn+'1'].border=border
+
         i=2
         for item in items:
             ws["A"+str(i)]=i-1
@@ -46,6 +84,16 @@ class Deal:
             ws["J"+str(i)]=self.model.confirmperson
             ws["K"+str(i)]=self.model.testperson
             ws["L"+str(i)]=self.model.stated
+
+            '''设置单元格格式'''
+            for nn in ['A','B','C','D','E','F','G','H','I','J','K','L']:
+                ws[nn+str(i)].alignment = Alignment(horizontal='center', vertical='center',wrap_text=True) #水平、竖直对齐 自动换行
+                ws[nn+str(i)].font=Font(name='宋体', size=11)
+                border = Border(left=Side(border_style='thin',color='000000'),
+                                right=Side(border_style='thin',color='000000'),
+                                top=Side(border_style='thin',color='000000'),
+                                bottom=Side(border_style='thin',color='000000'))
+                ws[nn+str(i)].border=border
             i+=1
         wb.save(savepath+'\\'+ self.model.filename + "-静态不符合项列表.xlsx")  #保存
 

@@ -22,6 +22,7 @@ class Show:
         self.root.title('静态不符合项列表-Script')
         self.root.geometry('500x250+100+200')
         self.root.resizable(0,0)
+        self.root.iconbitmap('q.ico')
 
         # 验证时间
         self.txtVerifyTime=tkinter.StringVar()
@@ -96,7 +97,19 @@ class Show:
         self.btnExport=tkinter.Button(self.root,text='生成',command=self.clickMaker)
         self.btnExport.place(x=230,y=200,width=90,height=30)
 
+        # 帮助
+        self.labhelp=tkinter.Label(self.root,text='帮助',font = ('宋体', 10),fg='#0000ff')
+        self.labhelp.place(x=360,y=210,width=90,height=30)
+        self.labhelp.bind('<Button-1>',self.clickHelp)
+
+
         self.root.mainloop()
+
+    # 帮助按钮点击事件
+    def clickHelp(self,e):
+        self.txtMessShow.insert(tkinter.END, '错误反馈及建议 13737434@qq.com\n--------------------------------\n')
+        self.txtMessShow.see(tkinter.END)
+
 
     # 添加按钮点击事件
     def clickAdd(self):
@@ -136,6 +149,8 @@ class Show:
                 deal=Deal(model)
                 def thread1(filelist):
                     try:
+                        self.txtMessShow.insert(tkinter.END, '正在生成.\n--------------------------------\n')
+                        self.txtMessShow.see(tkinter.END)
                         for file in filelist:
                             filename=deal.getOneReport(file,self.savepath)
                             self.txtMessShow.insert(tkinter.END, filename+'----导出完成\n--------------------------------\n')
