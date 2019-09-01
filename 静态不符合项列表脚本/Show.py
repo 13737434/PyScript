@@ -135,13 +135,18 @@ class Show:
                 model=Model(self.txtVerifyTime.get(),self.txtDealWay.get(),self.txtExplanation.get(),self.txtConfirmPerson.get(),self.txtTestPerson.get(),self.txtStated.get())
                 deal=Deal(model)
                 def thread1(filelist):
-                    for file in filelist:
-                        filename=deal.getOneReport(file,self.savepath)
-                        self.txtMessShow.insert(tkinter.END, filename+'----导出完成\n--------------------------------\n')
+                    try:
+                        for file in filelist:
+                            filename=deal.getOneReport(file,self.savepath)
+                            self.txtMessShow.insert(tkinter.END, filename+'----导出完成\n--------------------------------\n')
+                            self.txtMessShow.see(tkinter.END)
+                        self.txtMessShow.insert(tkinter.END, '任务结束.\n--------------------------------\n')
                         self.txtMessShow.see(tkinter.END)
-                    self.txtMessShow.insert(tkinter.END, '任务结束.\n--------------------------------\n')
-                    self.txtMessShow.see(tkinter.END)
-                    self.ischoose=False
+                        tkinter.messagebox.showinfo("Finish","任务结束.")
+                        self.ischoose=False
+                    except Exception as exc:
+                        tkinter.messagebox.showerror("Finish",exc)
+                        print(exc)
                 th=threading.Thread(target=thread1,args=(self.filelist,))
                 th.setDaemon(True)
                 th.start()
@@ -151,11 +156,6 @@ class Show:
         else:
             self.txtMessShow.insert(tkinter.END, '没有可操作的文件\n--------------------------------\n')
             self.txtMessShow.see(tkinter.END)
-
-
-
-
-
 
     #递归遍历筛选文件
     def selectFile(self,dirpath):
@@ -168,17 +168,6 @@ class Show:
                 if os.path.splitext(file)[1] == '.mht':
                     filelist.append(os.path.join(root, file))
         return filelist
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
