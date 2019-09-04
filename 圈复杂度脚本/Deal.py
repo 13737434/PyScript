@@ -36,11 +36,15 @@ class Deal:
 
     #正则匹配所有函数所在的.c文件 返回一个字典
     def getAllFunDict(self,text):
-        pattern=re.compile('\s(\w*)\s*\(Function\)\s*\[(.*?\.c),',re.S)
-        items=re.findall(pattern,text)
+        pattern1=re.compile('\s(\w*)\s*\(Function\)\s*\[(.*?\.c),',re.S)
+        items1=re.findall(pattern1,text)
+        pattern2=re.compile('\s(\w*)\s*\(Static Function\)\s*\[(.*?\.c),',re.S)
+        items2=re.findall(pattern2,text)
         d={}
-        for item in items:
-            d[item[0]]=item[1]
+        for item1 in items1:
+            d[item1[0]]=item1[1]
+        for item2 in items2:
+            d[item2[0]]=item2[1]
         return d
         
 
@@ -173,9 +177,10 @@ class Deal:
 
 if __name__ == '__main__':
     dd=Deal()
-    text=dd.getString('C:/Users/v5682/Desktop/MyUnderstandProject.txt')
-    # print(dd.getAllFunDict(text))
-    print(dd.isTrue(text))
+    text=dd.getString('C:/Users/v5682/Desktop/9.txt')
+    print(dd.getAllFunDict(text))
+    print(len(dd.getAllCyclomatic(text)))
+    # print(dd.isTrue(text))
 
 
 
