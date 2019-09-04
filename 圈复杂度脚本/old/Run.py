@@ -2,7 +2,7 @@ import re
 
 from openpyxl import load_workbook
 
-from 圈复杂度脚本.CyclomaticItem import CyclomaticItem
+from 圈复杂度脚本.old.CyclomaticItem import CyclomaticItem
 class Run:
     def __init__(self):
         self.cyclomaticItem=CyclomaticItem()

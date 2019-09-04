@@ -105,7 +105,6 @@ class Deal:
         yellowItems=self.parseYellowString(text)
         self.dataWrite(redItems+yellowItems,savepath)
         return self.model.filename
-
     #生成所有的.mht文件的报告
     # def getAllReport(self,filelist):
     #     for file in filelist:

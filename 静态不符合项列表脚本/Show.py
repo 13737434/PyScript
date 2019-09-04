@@ -4,6 +4,8 @@ import tkinter.messagebox
 import datetime
 import os
 import threading
+import base64
+from 静态不符合项列表脚本.icon import img
 from 静态不符合项列表脚本.Model import Model
 from 静态不符合项列表脚本.Deal import Deal
 
@@ -18,11 +20,15 @@ class Show:
 
 
     def UIInit(self):
+        tmp = open("tmp.ico","wb+")
+        tmp.write(base64.b64decode(img))
+        tmp.close()
         self.root=tkinter.Tk()
         self.root.title('静态不符合项列表-Script')
         self.root.geometry('500x250+100+200')
         self.root.resizable(0,0)
-        self.root.iconbitmap('q.ico')
+        self.root.iconbitmap('tmp.ico')
+        os.remove("tmp.ico")
 
         # 验证时间
         self.txtVerifyTime=tkinter.StringVar()
