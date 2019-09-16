@@ -7,6 +7,7 @@ import threading
 import base64
 import os
 from tkinter import ttk
+from 用例集.Deal import *
 
 
 class Show:
@@ -14,7 +15,8 @@ class Show:
         self.nowyear=datetime.datetime.now().strftime('%Y') #当前年
         self.nowmonth=datetime.datetime.now().strftime('%m') #当前月
         self.nowday=datetime.datetime.now().strftime('%d') #当前日
-        self.UIInit()  # 界面初始化
+        self.UIInit()# 界面初始化
+        self.ischoose=False
     def UIInit(self):
         # tmp = open("tmp.ico","wb+")
         # tmp.write(base64.b64decode(img))
@@ -54,15 +56,15 @@ class Show:
         self.cmbmonth['value']=[int(self.nowmonth)]+[n for n in range(1,13)]
         self.cmbmonth.current(0)
         self.cmbmonth.place(x=120,y=70,width=45,height=20)
-        self.cmbmonth=tkinter.Label(self.root,text='月')
-        self.cmbmonth.place(x=170,y=70,height=20)
+        self.labmonth=tkinter.Label(self.root,text='月')
+        self.labmonth.place(x=170,y=70,height=20)
 
         self.cmbday=ttk.Combobox(self.root)
         self.cmbday['value']=[int(self.nowday)]+[n for n in range(1,32)]
         self.cmbday.current(0)
         self.cmbday.place(x=200,y=70,width=45,height=20)
-        self.cmbday=tkinter.Label(self.root,text='日')
-        self.cmbday.place(x=250,y=70,width=30,height=20)
+        self.labday=tkinter.Label(self.root,text='日')
+        self.labday.place(x=250,y=70,width=30,height=20)
 
         # 消息提示区
         self.txtmessshow=tkinter.Text(self.root, bg="#ffffff")
@@ -71,15 +73,104 @@ class Show:
         self.scroll.pack(side=tkinter.RIGHT,fill=tkinter.Y)
         self.txtmessshow.config(yscrollcommand=self.scroll.set)
 
+        # 文件/文件夹模式选择
+        self.int_val=tkinter.IntVar()
+        self.int_val.set('11')
+        self.rbtnChooseFile=tkinter.Radiobutton(self.root,text='选择文件',variable=self.int_val,value="11")
+        self.rbtnChooseFile.place(x=20,y=120,height=20)
+        self.rbtnChooseFiles=tkinter.Radiobutton(self.root,text='选择文件夹',variable=self.int_val,value="22")
+        self.rbtnChooseFiles.place(x=20,y=150,height=20)
 
+        # 添加按钮
+        self.btnAdd=tkinter.Button(self.root,text='添加',command=self.clickAdd)
+        self.btnAdd.place(x=140,y=118,width=90,height=30)
 
-
-
-
-
+        # 导出按钮
+        self.btnExport=tkinter.Button(self.root,text='生成',command=self.clickMaker)
+        self.btnExport.place(x=140,y=150,width=90,height=30)
 
 
         self.root.mainloop()
+
+        # 添加按钮点击事件
+    def clickAdd(self):
+        self.txtmessshow.delete('1.0','end')
+        if(self.int_val.get()==11):
+            self.filelist=tkinter.filedialog.askopenfilenames(title='请选择.tcf序列',filetypes=(("TCF files", "*.tcf;"),))
+            self.txtmessshow.insert(tkinter.END, '选择了' + str(len(self.filelist)) + '个文件\n--------------------------------\n')
+            self.txtmessshow.see(tkinter.END)
+            if(len(self.filelist)>0):
+                self.ischoose=True
+            else:
+                self.ischoose=False
+        elif(self.int_val.get()==22):
+            self.path=tkinter.filedialog.askdirectory(title='请选择文件夹')  #可遍历整个文件夹中所有的.mht文件
+            if(self.path):
+                self.filelist=self.selectFile(self.path)
+                self.txtmessshow.insert(tkinter.END, '选择了' + str(len(self.filelist)) + '个文件\n--------------------------------\n')
+                self.txtmessshow.see(tkinter.END)
+                if(len(self.filelist)>0):
+                    self.ischoose=True
+                else:
+                    self.ischoose=False
+            else:
+                self.txtmessshow.insert(tkinter.END, '未选择文件夹\n--------------------------------\n')
+                self.txtmessshow.see(tkinter.END)
+
+        else:
+            self.txtmessshow.insert(tkinter.END, 'error\n')
+            self.txtmessshow.see(tkinter.END)
+
+    # 生成按钮点击事件
+    def clickMaker(self):
+        if(self.ischoose):
+            self.savepath=tkinter.filedialog.askdirectory(title='请选择保存路径')
+            if(self.savepath):
+                def thread1(filelist):
+                    try:
+                        self.txtmessshow.insert(tkinter.END, '正在生成.\n--------------------------------\n')
+                        self.txtmessshow.see(tkinter.END)
+                        deal=Deal(self.txtprojectname.get(),self.txttestpeople.get(),self.cmbyear.get(),self.cmbmonth.get(),self.cmbday.get())
+                        list=[]
+                        for file in filelist:
+                            text1=deal.getText(file)
+                            caselist1=deal.getCaseList(text1)
+                            list.append(caselist1)
+                        run=deal.dealCase(list,self.savepath)
+                        for run1 in run:
+                            self.txtmessshow.insert(tkinter.END, run1+'----导出完成\n--------------------------------\n')
+                            self.txtmessshow.see(tkinter.END)
+                        self.txtmessshow.insert(tkinter.END, '任务结束.\n--------------------------------\n')
+                        self.txtmessshow.see(tkinter.END)
+                        tkinter.messagebox.showinfo("Finish","任务结束.")
+                        self.ischoose=False
+                    except Exception as exc:
+                        tkinter.messagebox.showerror("Finish",exc)
+                        print(exc)
+                th=threading.Thread(target=thread1,args=(self.filelist,))
+                th.setDaemon(True)
+                th.start()
+            else:
+                self.txtmessshow.insert(tkinter.END, '未选择保存路径\n--------------------------------\n')
+                self.txtmessshow.see(tkinter.END)
+        else:
+            self.txtmessshow.insert(tkinter.END, '没有可操作的文件\n--------------------------------\n')
+            self.txtmessshow.see(tkinter.END)
+
+    #递归遍历筛选文件
+    def selectFile(self,dirpath):
+        filelist=[]
+        for root, dirs, files in os.walk(dirpath):
+            #print(root) #当前目录路径
+            #print(dirs) #当前路径下所有子目录
+            #print(files) #当前路径下所有非目录子文件
+            for file in files:
+                if os.path.splitext(file)[1] == '.tcf':
+                    filelist.append(os.path.join(root, file))
+        return filelist
+
+
+
 
 
 if __name__ == '__main__':

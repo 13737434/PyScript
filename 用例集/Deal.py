@@ -7,13 +7,15 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor, Inches
 class Deal:
-    '''修改项'''
-    projectname='ATP_V1.6.0_P1_1.'
-    testpeople= 'xxx'
-    projectyear='2019'
-    projectmonth='10'
-    projectday='15'
-    '''END'''
+    def __init__(self,projectname,testpeople,projectyear,projectmonth,projectday):
+        '''修改项'''
+        self.projectname=projectname
+        self.testpeople=testpeople
+        self.projectyear=projectyear
+        self.projectmonth=projectmonth
+        self.projectday=projectday
+        '''END'''
+
     filename=''
     funname=''
     # 构建正则表达式
@@ -160,7 +162,7 @@ class Deal:
         return [self.funname,self.filename,caselist,idmessdict]
 
     #整理信息
-    def dealCase(self,list):
+    def dealCase(self,list,savepath):
         filelist=set()
         for li in list:
                 filelist.add(li[1])
@@ -477,7 +479,7 @@ class Deal:
                         table.cell(7,1).text=casedict['outputstr']
                         table.cell(8,1).text=casedict['result']
                     '''遍历案例集 END'''
-            document.save('C:\\Users\\v5682\\Desktop\\新建文件夹1\\'+filename+'单元测试用例集.docx')
+            document.save(savepath+'\\'+filename+'单元测试用例集.docx')
             yield filename
 
 
@@ -519,7 +521,7 @@ if __name__ == '__main__':
         caselist1=run.getCaseList(text1)
         list.append(caselist1)
 
-    a=run.dealCase(list)
+    a=run.dealCase(list,'C:\\Users\\v5682\\Desktop\\新建文件夹1')
     for x in a:
         print(x)
 
