@@ -1,11 +1,13 @@
 import os
 import re
-import datetime
+import chardet
+import base64
 from docx import *
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT,WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor, Inches
+from 单元测试用例集.model import docx
 class Deal:
     def __init__(self,projectname,testpeople,projectyear,projectmonth,projectday):
         '''修改项'''
@@ -35,9 +37,12 @@ class Deal:
 
     #获取 XXXXX.tcf中的文本
     def getText(self, url):
-        with open(url, 'r',encoding='UTF-8') as f:
-            text=f.read()
-        return text
+        with open(url, 'rb') as f:
+            f_read=f.read()
+            f_charInfo=chardet.detect(f_read)
+            f_read_decode=f_read.decode(f_charInfo['encoding'])
+            print(f_charInfo['encoding'])
+        return f_read_decode
 
     #正则匹配所有tcf中的有用信息,返回一个列表
     def getCaseList(self,text):
@@ -105,7 +110,7 @@ class Deal:
                 casedetail['testingway']=testing[0][0]
                 casedetail['testingdescribe']=testing[0][1]
             else:
-                casedetail['testingway']='无'
+                casedetail['testingway']='边界值、等价类'
                 casedetail['testingdescribe']='无'
 
             # 解析预计输入
@@ -166,8 +171,11 @@ class Deal:
         filelist=set()
         for li in list:
                 filelist.add(li[1])
+        tmp = open("Tmp.docx","wb+")
+        tmp.write(base64.b64decode(docx))
+        tmp.close()
         for fi in filelist:
-            document=Document('Model.docx') #导入word （页眉页脚）
+            document=Document('Tmp.docx') #导入word （页眉页脚）
             isinit=False
             funno=1 #函数编号
             filename=''
@@ -480,7 +488,10 @@ class Deal:
                         table.cell(8,1).text=casedict['result']
                     '''遍历案例集 END'''
             document.save(savepath+'\\'+filename+'单元测试用例集.docx')
+            print(filename)
             yield filename
+
+        os.remove("Tmp.docx")
 
 
 

@@ -5,28 +5,30 @@ import tkinter.ttk
 import datetime
 import threading
 import base64
+from 单元测试用例集.icon import img
 import os
 from tkinter import ttk
-from 用例集.Deal import *
+from 单元测试用例集.Deal import *
 
 
 class Show:
+    ischoose=False
     def __init__(self):
         self.nowyear=datetime.datetime.now().strftime('%Y') #当前年
         self.nowmonth=datetime.datetime.now().strftime('%m') #当前月
         self.nowday=datetime.datetime.now().strftime('%d') #当前日
         self.UIInit()# 界面初始化
-        self.ischoose=False
+
     def UIInit(self):
-        # tmp = open("tmp.ico","wb+")
-        # tmp.write(base64.b64decode(img))
-        # tmp.close()
+        tmp = open("tmp.ico","wb+")
+        tmp.write(base64.b64decode(img))
+        tmp.close()
         self.root=tkinter.Tk()
         self.root.title('单元测试用例集-Script')
         self.root.geometry('300x380+100+200')
         self.root.resizable(0,0)
-        # self.root.iconbitmap('tmp.ico')
-        # os.remove("tmp.ico")
+        self.root.iconbitmap('tmp.ico')
+        os.remove("tmp.ico")
 
         # 项目名称
         self.txtprojectname=tkinter.StringVar()
@@ -132,10 +134,14 @@ class Show:
                         self.txtmessshow.see(tkinter.END)
                         deal=Deal(self.txtprojectname.get(),self.txttestpeople.get(),self.cmbyear.get(),self.cmbmonth.get(),self.cmbday.get())
                         list=[]
+                        ii=1
                         for file in filelist:
                             text1=deal.getText(file)
                             caselist1=deal.getCaseList(text1)
+                            self.txtmessshow.insert(tkinter.END, '----解析文本'+str(ii)+'\n--------------------------------\n')
+                            self.txtmessshow.see(tkinter.END)
                             list.append(caselist1)
+                            ii+=1
                         run=deal.dealCase(list,self.savepath)
                         for run1 in run:
                             self.txtmessshow.insert(tkinter.END, run1+'----导出完成\n--------------------------------\n')
@@ -143,7 +149,7 @@ class Show:
                         self.txtmessshow.insert(tkinter.END, '任务结束.\n--------------------------------\n')
                         self.txtmessshow.see(tkinter.END)
                         tkinter.messagebox.showinfo("Finish","任务结束.")
-                        self.ischoose=False
+                        # self.ischoose=False #可以一次导入多次生成
                     except Exception as exc:
                         tkinter.messagebox.showerror("Finish",exc)
                         print(exc)
