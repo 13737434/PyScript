@@ -276,7 +276,7 @@ class Show:
                                 if(tmpfun in self.getallfun):
                                     newlists.append([tmpfun,self.getallcyclomatic[tmpfun],self.getallfun[tmpfun]])
                                 else:
-                                    newlists.append([tmpfun,self.getallcyclomatic[tmpfun],'null'])
+                                    newlists.append([tmpfun,self.getallcyclomatic[tmpfun],'需进入Excel手动添加'])
                         if(len(newlists)>0):
                             self.deal.makeExcel(model,newlists,self.savepath)
                         else:
