@@ -236,7 +236,7 @@ class Deal:
                         str1=u'\r'*2
                         str2=self.projectname
                         str3=u'\r'*3
-                        str4=funname+u'模块单元测试用例集'
+                        str4=filename+u'模块单元测试用例集'
                         str5=u'\r'*6
                         str6=u'通号城市轨道交通技术有限公司'
                         str7=u'\r'
@@ -427,7 +427,7 @@ class Deal:
                             run.font.name = u"宋体"
                             run._element.rPr.rFonts.set(qn('w:eastAsia'), u'宋体')
                     table.cell(0,1).text=idmess['Id']
-                    table.cell(0,5).text=idmess['Engineer']
+                    table.cell(0,5).text='董威'#idmess['Engineer']
                     table.cell(1,1).text=idmess['Descriptions']
                     table.cell(2,1).text=idmess['Reference']
                     table.cell(3,1).text=idmess['Global']
