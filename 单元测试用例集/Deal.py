@@ -33,9 +33,11 @@ class Deal:
     patternTCStub=re.compile('# Begin TC Stub\s*Procedure =\s(\S*)\s*Overloading =.*?Type =\s*(.*?)\s*Value =\s*(\S*)\s*# End TC Stub Return Value',re.S) #解析桩函数
     patternGetZ=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = Z\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析输入
     patternGetH=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = H\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析输出
+    patternGetO=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = O\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析返回值
 
 
-    #获取 XXXXX.tcf中的文本
+
+#获取 XXXXX.tcf中的文本
     def getText(self, url):
         with open(url, 'rb') as f:
             f_read=f.read()
@@ -155,6 +157,10 @@ class Deal:
             if(outputlist):
                 for aoutput in outputlist:
                     outputstr+=aoutput[1]+'  '+aoutput[0]+' = '+aoutput[2]+' ;\n'
+            returnlist=re.findall(self.patternGetO,case)
+            if(returnlist):
+                for areturn in returnlist:
+                    outputstr+='return '+areturn[2]+' ;\n'
             if(outputstr):
                 casedetail['outputstr']=outputstr
             else:

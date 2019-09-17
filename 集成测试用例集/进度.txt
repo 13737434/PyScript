@@ -1,0 +1,52 @@
+页眉
+      图片
+      项目名称 例 CBTC(2.0) 车载ATP子系统
+      文件名称 例  balise模块软件单元测试用例集
+主页
+      版本号 例：ATP V1.6.0_P1_1.0.0   需手写
+      文件名称 例  balise模块软件单元测试用例集
+      固定格式 通号城市轨道交通技术有限公司 时间xxxxx
+
+
+      修改记录  表格
+                     版本号 修改章节 修改内容概要 修改人 修改时间
+
+      签署页
+              表格    4x4
+
+
+      测试范围与结果
+      序号 函数名 用例数  针对版本 测试结果
+
+      序列标识  Seq_Un_ATP_V1.6.0_P1_1.0.0_balise_parse_packets
+       测试者
+       序列描述
+       参考文件
+       用户变量
+       备注信息
+
+
+       用例1
+               用例编号    # Begin Text.........# End Text
+               测试技术   同上
+               用例描述     同上
+
+               全局变量  # Begin Global ...... # End Global
+               初始化代码 # Begin Startup Code.....# End Startup Code
+               桩函数  Procedure =.......# Begin TC Stub
+               输入  Usage = Z G
+
+               预期输出 Usage = H O(集成 return)
+               实际输出  同上
+
+               结论  PASS
+
+
+页脚
+        版本 默认 v0.0.1
+        页码
+        日期
+
+
+2019/9/12
+界面设计 解析序列相关信息 压缩word模板
