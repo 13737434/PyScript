@@ -493,7 +493,7 @@ class Deal:
                         table.cell(7,1).text=casedict['outputstr']
                         table.cell(8,1).text=casedict['result']
                     '''遍历案例集 END'''
-            document.save(savepath+'\\'+filename+'单元测试用例集.docx')
+            document.save(savepath+'\\'+self.projectname+'_'+filename+'单元测试用例集.docx')
             print(filename)
             yield filename
 

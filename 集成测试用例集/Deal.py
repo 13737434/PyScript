@@ -471,7 +471,7 @@ class Deal:
                         table.cell(8,1).text=casedict['result']
                     '''遍历案例集 END'''
 
-        document.save(savepath+'\\集成测试用例集.docx')
+        document.save(savepath+'\\'+self.projectname+'集成测试用例集.docx')
         os.remove("Tmp.docx")
 
 
