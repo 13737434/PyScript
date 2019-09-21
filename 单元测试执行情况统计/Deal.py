@@ -15,7 +15,7 @@ class Deal:
     ''''''
 
     '''LDRA TBrun Regression Report'''
-    patternRows_1=re.compile(r'<TR align=3Dmiddle>\s*<TD><A.*?</TD></TR>',re.S) #解析某一行
+    patternRows_1=re.compile(r'<TR align=\w*?>\s*<TD><A.*?</TD></TR>',re.S) #解析某一行
     patternfrom=re.compile(r'<TD>(\w.*?)</TD>',re.S) #解析案例数、所在.c
 
 
