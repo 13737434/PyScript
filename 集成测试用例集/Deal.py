@@ -24,14 +24,14 @@ class Deal:
     # 构建正则表达式
     # for text
     patternAllCase=re.compile('# Begin Test Case(.*?)# End Test Case',re.S) #解析一个.tcf中的所有案例
-    patternIDMess=re.compile('#Begin Sequence Documentation.*?Sequence Id:\s*(\S*)\s*#Begin Sequence Descriptions\s*(\S.*\S)\s*#End Sequence Descriptions\s*Test Engineer:\s*(\S.*\S)\s*#Begin Reference\s*(\S.*\S)\s*#End Reference\s*#Begin User Global\s*(\S.*\S)\s*#End User Global\s*#Begin Comment\s*(\S.*\S)\s*#End Comment', re.S)# 解析该序列标识
+    patternIDMess=re.compile('#Begin Sequence Documentation.*?Sequence Id:\s*(.*?)\s*#Begin Sequence Descriptions\s*(.*?)\s*#End Sequence Descriptions\s*Test Engineer:\s*(.*?)\s*#Begin Reference\s*(.*?)\s*#End Reference\s*#Begin User Global\s*(.*?)\s*#End User Global\s*#Begin Comment\s*(.*?)\s*#End Comment', re.S)# 解析该序列标识
     patternFunList=re.compile('#Begin Isolated Procedure.*?Procedure =\s*(\S*)\s*Procedure Number',re.S)
     #for case
     patternGetFunName=re.compile(r'Procedure =\s*(\S*)\s*Procedure Number',re.S) #解析一个case中的函数名
     patternGetFileName=re.compile(r'File.*\\(\w*)\.c',re.S) #解析一个case中的文件名
-    patternGetTesting=re.compile('#Begin View Case Documentation.*?Test Skills:\s*(\S.*\S)\s*#Begin Case Descriptions\s*(\S.*\S)\s*#End Case Descriptions',re.S) #解析测试技术&用例描述
+    patternGetTesting=re.compile('#Begin View Case Documentation.*?Test Skills:\s*(.*?)\s*#Begin Case Descriptions\s*(.*?)\s*#End Case Descriptions',re.S) #解析测试技术&用例描述
     patternGetG=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = G\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析全局变量
-    patternInit=re.compile('# Begin Startup Code\s*(\S.*\S)\s*# End Startup Code',re.S) #解析初始化代码
+    patternInit=re.compile('# Begin Startup Code\s*(.*?)\s*# End Startup Code',re.S) #解析初始化代码
     patternTCStub=re.compile('# Begin TC Stub\s*Procedure =\s(\S*)\s*Overloading =.*?Type =\s*(.*?)\s*Value =\s*(\S*)\s*# End TC Stub Return Value',re.S) #解析桩函数
     patternGetZ=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = Z\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析输入
     patternGetH=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = H\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析输出
@@ -404,7 +404,7 @@ class Deal:
                             run.font.name = u"宋体"
                             run._element.rPr.rFonts.set(qn('w:eastAsia'), u'宋体')
                     table.cell(0,1).text=idmess['Id']
-                    table.cell(0,5).text=idmess['Engineer']
+                    table.cell(0,5).text=self.testpeople#idmess['Engineer']
                     table.cell(1,1).text=idmess['Descriptions']
                     table.cell(2,1).text=idmess['Reference']
                     table.cell(3,1).text=idmess['Global']
