@@ -5,10 +5,11 @@ import tkinter.ttk
 import threading
 import base64
 import os
+from 函数调用关系.icon import img
 from 函数调用关系.Deal import Deal
-
 class Show:
     isaddtxt=False #判断是否导入文本
+    getallfun=set() #所有函数集合
     getFundict={} #调用level1：【调用level2，，，，，】
     getFundict_1={} #调用level1：【入口函数名称，，，，，，】
     deal=Deal()
@@ -18,15 +19,15 @@ class Show:
         self.UIInit()  # 界面初始化
 
     def UIInit(self):
-        # tmp = open("tmp.ico","wb+")
-        # tmp.write(base64.b64decode(img))
-        # tmp.close()
+        tmp = open("tmp.ico","wb+")
+        tmp.write(base64.b64decode(img))
+        tmp.close()
         self.root=tkinter.Tk()
         self.root.title('函数调用关系')
         self.root.geometry('270x560+100+200')
         self.root.resizable(0,0)
-        # self.root.iconbitmap('tmp.ico')
-        # os.remove("tmp.ico")
+        self.root.iconbitmap('tmp.ico')
+        os.remove("tmp.ico")
 
 
 
@@ -91,6 +92,7 @@ class Show:
                     if(self.deal.isTrue(text)):#判断文本是否符合要求
                         self.getFundict=self.deal.getFunDict(text)#获得字典 函数名--.c文件名
                         self.getFundict_1=self.deal.getFunDict_1(self.getFundict)#获得字典 函数名--圈复杂度
+                        self.getallfun=self.deal.allfun #所有函数集合
                         self.isaddtxt=True
                         self.funlist=[]
                         self.txtmessshow.insert(tkinter.END, '文本解析成功,继续下一步\n--------------------------------\n')
@@ -113,7 +115,7 @@ class Show:
     def clickAddFun(self):
         if(self.isaddtxt): #操作1完成，执行操作2
             tmpfun=self.txtaddfun.get()
-            if(tmpfun in self.getFundict):
+            if(tmpfun in self.getallfun):
                 if(tmpfun not in self.funlist):
                     self.funlist.append(tmpfun)
                     self.treeview.insert('','end', values=(tmpfun))
@@ -151,16 +153,16 @@ class Show:
             self.savepath=tkinter.filedialog.askdirectory(title='请选择保存路径')
             if(self.savepath):
                 def thread2(funlists):
-                    try:
+                    # try:
                         self.txtmessshow.insert(tkinter.END,'正在生成\n--------------------------------\n')
                         self.txtmessshow.see(tkinter.END)
                         self.deal.makeExcel(funlists,self.getFundict,self.getFundict_1,self.savepath)
                         self.txtmessshow.insert(tkinter.END,'任务结束\n--------------------------------\n')
                         self.txtmessshow.see(tkinter.END)
                         tkinter.messagebox.showinfo("Finish","任务结束.")
-                    except Exception as exc:
-                        tkinter.messagebox.showerror("Finish",exc)
-                        print(exc)
+                    # except Exception as exc:
+                    #     tkinter.messagebox.showerror("Finish",exc)
+                    #     print(exc)
                 th=threading.Thread(target=thread2,args=(self.funlist,))
                 th.setDaemon(True)
                 th.start()

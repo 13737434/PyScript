@@ -2,6 +2,9 @@ import re
 import openpyxl
 from openpyxl.styles import Font,Alignment,Border,Side,PatternFill,colors
 class Deal:
+    # 构建函数字典
+    allfun=set()
+
     # 构建正则表达式
     patternistrue=re.compile('Simple\s*Invocation\s*Tree',re.S)#解析文本是否符合要求
     patternpages=re.compile('Simple\s*Invocation\s*Tree\s*Report\s*=*\n(.*?)\x0c',re.S)#解析所有Simple Invocation Tree页内容
@@ -31,12 +34,15 @@ class Deal:
         for funli in funlists:
             calllists=re.findall(self.patternfuncalls,funli[1])
             fundic[funli[0]]=calllists
+            self.allfun.add(funli[0])
+            for li in calllists:
+                self.allfun.add(li)
         return fundic
 
     #获得字典 调用level1：【入口函数名称，，，，，，】
     def getFunDict_1(self,fundic):
         fundic_1={}
-        for f in fundic:
+        for f in self.allfun:
             tmplist=[]
             for li in fundic:
                 if(f in fundic[li]):
@@ -70,11 +76,17 @@ class Deal:
             ws[nn+'1'].border=border
 
         i=2
-        for fd in fundic:
+        for fd in self.allfun:
             ws["A"+str(i)]=i-1
-            ws["B"+str(i)]='\n'.join(fundic_1[fd])
+            if(fd in fundic_1):
+                ws["B"+str(i)]='\n'.join(fundic_1[fd])
+            else:
+                ws["B"+str(i)]='——'
             ws["C"+str(i)]=fd
-            ws["D"+str(i)]='\n'.join(fundic[fd])
+            if(fd in fundic):
+                ws["D"+str(i)]='\n'.join(fundic[fd])
+            else:
+                ws["D"+str(i)]='——'
             '''设置单元格格式'''
             for nn in ['A','B','C','D']:
                 ws[nn+str(i)].alignment = Alignment(horizontal='center', vertical='center',wrap_text=True) #水平、竖直对齐 自动换行
@@ -116,9 +128,15 @@ class Deal:
         i=2
         for fd in funlist:
             ws["A"+str(i)]=i-1
-            ws["B"+str(i)]='\n'.join(fundic_1[fd])
+            if(fd in fundic_1):
+                ws["B"+str(i)]='\n'.join(fundic_1[fd])
+            else:
+                ws["B"+str(i)]='——'
             ws["C"+str(i)]=fd
-            ws["D"+str(i)]='\n'.join(fundic[fd])
+            if(fd in fundic):
+                ws["D"+str(i)]='\n'.join(fundic[fd])
+            else:
+                ws["D"+str(i)]='——'
             '''设置单元格格式'''
             for nn in ['A','B','C','D']:
                 ws[nn+str(i)].alignment = Alignment(horizontal='center', vertical='center',wrap_text=True) #水平、竖直对齐 自动换行
@@ -145,10 +163,11 @@ class Deal:
 
 if __name__ == '__main__':
     dd=Deal()
-    text=dd.getString('C:/Users/v5682/Desktop/MyUnderstandProject.txt')
+    text=dd.getString('C:/Users/v5682/Desktop/MyUnderstandProject(1).txt')
     #print(dd.isTrue(text))
     fundic=dd.getFunDict(text)
     fundic_1=dd.getFunDict_1(fundic)
-    dd.makeExcel(fundic,fundic_1,"C:/Users/v5682/Desktop")
+    dd.makeExcel_all(fundic,fundic_1,"C:/Users/v5682/Desktop")
+
 
 
