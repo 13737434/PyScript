@@ -303,7 +303,7 @@ class Show:
 
     # 帮助按钮点击事件
     def clickHelp(self,e):
-        self.txtmessshow.insert(tkinter.END, '错误反馈及建议 13737434@qq.com\n--------------------------------\n')
+        self.txtmessshow.insert(tkinter.END, '错误反馈及建议 379221379@qq.com\n--------------------------------\n')
         self.txtmessshow.see(tkinter.END)
 
 
