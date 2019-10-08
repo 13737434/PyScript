@@ -150,9 +150,11 @@ class Show:
 
         # 生成报告单
         self.labcyc=tkinter.Label(self.root,text="3.生成报告单(圈复杂度大于20)")
-        self.labcyc.place(x=100,y=520)
-        self.btnexport=tkinter.Button(self.root,text='生成',command=self.clickMakeReport)
-        self.btnexport.place(x=280,y=520,width=80,height=25)
+        self.labcyc.place(x=20,y=520)
+        self.btnexport=tkinter.Button(self.root,text='生成列表中函数',command=self.clickMakeReport)
+        self.btnexport.place(x=200,y=520,width=100,height=25)
+        self.btnexport=tkinter.Button(self.root,text='生成所有函数',command=self.clickMakeReport1)
+        self.btnexport.place(x=320,y=520,width=90,height=25)
 
         # 帮助
         self.labhelp=tkinter.Label(self.root,text='帮助',font = ('宋体', 10),fg='#0000ff')
@@ -289,6 +291,45 @@ class Show:
                         tkinter.messagebox.showerror("Finish",exc)
                         print(exc)
                 th=threading.Thread(target=thread2,args=(self.funlist,))
+                th.setDaemon(True)
+                th.start()
+            else:
+                self.txtmessshow.insert(tkinter.END, '未选择保存路径\n--------------------------------\n')
+                self.txtmessshow.see(tkinter.END)
+
+        else:
+            self.txtmessshow.insert(tkinter.END, '没有可生成的对象\n--------------------------------\n')
+            self.txtmessshow.see(tkinter.END)
+
+    # 生成所有 按钮点击事件
+    def clickMakeReport1(self):
+        if(self.isaddtxt):
+            self.savepath=tkinter.filedialog.askdirectory(title='请选择保存路径')
+            if(self.savepath):
+                model=Model(self.txtseriouslv.get(),self.txtfindsub.get(),self.txtNCRclass.get(),self.txtfindtime.get(),self.txtfindperson.get(),self.txtquestionnum.get(),self.txtdealopinion.get(),self.txtsolution.get(),self.txtconfirmperson.get(),self.txtverifytime.get(),self.txtstated.get())
+                def thread2(funlists):
+                    try:
+                        self.txtmessshow.insert(tkinter.END,'正在生成\n--------------------------------\n')
+                        self.txtmessshow.see(tkinter.END)
+                        newlists=[]
+                        for tmpfun in funlists:
+                            if int(self.getallcyclomatic[tmpfun])>20:
+                                if(tmpfun in self.getallfun):
+                                    newlists.append([tmpfun,self.getallcyclomatic[tmpfun],self.getallfun[tmpfun]])
+                                else:
+                                    newlists.append([tmpfun,self.getallcyclomatic[tmpfun],'需进入Excel手动添加'])
+                        if(len(newlists)>0):
+                            self.deal.makeExcel(model,newlists,self.savepath)
+                        else:
+                            self.txtmessshow.insert(tkinter.END,'没有不符合项\n--------------------------------\n')
+                            self.txtmessshow.see(tkinter.END)
+                        self.txtmessshow.insert(tkinter.END,'任务结束\n--------------------------------\n')
+                        self.txtmessshow.see(tkinter.END)
+                        tkinter.messagebox.showinfo("Finish","任务结束.")
+                    except Exception as exc:
+                        tkinter.messagebox.showerror("Finish",exc)
+                        print(exc)
+                th=threading.Thread(target=thread2,args=(self.getallcyclomatic,))
                 th.setDaemon(True)
                 th.start()
             else:

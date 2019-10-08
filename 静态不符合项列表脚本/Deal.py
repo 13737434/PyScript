@@ -5,6 +5,10 @@ from openpyxl.styles import Font,Alignment,Border,Side
 class Deal:
     def __init__(self,Model):
         self.model=Model
+        '''正则初始化'''
+        self.patternfilename=re.compile('<H1>File.*?(\w+)\\.c.*?</H1>',re.S)
+        self.patternred=re.compile('<TR>.*?bgColor=3D#ff8181.*?\.htm">(.*?)</A>.*?color=3Dblue>(.*?)</FONT>.*?\.write\(\'(.*?)\'\).*?</FONT></TD></TR>',re.S)
+        self.patternyellow=re.compile('<TR>.*?bgColor=3Dyellow.*?<CENTER>(.*?)</CENTER>.*?3Dblue>(.*?)</FONT>.*?write\(\'(.*?)\'\).*?</FONT></TD></TR>',re.S)
 
     #获取 XXXXX.mht 中的文本
     def getString(self, url):
@@ -14,19 +18,16 @@ class Deal:
 
     #获取文件名
     def getFileName(self,str):
-        pattern=re.compile(r'<H1>File.*\\(.*?)\.c.*?</H1>',re.S)
-        file_name=re.findall(pattern,str)[0].replace("\n", "").replace("=", "")
+        file_name=re.findall(self.patternfilename,str)[0].replace("\n", "").replace("=", "")
         return file_name
 
     #解析红色部分
     def parseRedString(self,str):
-        pattern=re.compile('<TR>.*?bgColor=3D#ff8181.*?\.htm">(.*?)</A>.*?color=3Dblue>(.*?)</FONT>.*?\.write\(\'(.*?)\'\).*?</FONT></TD></TR>',re.S)
-        items=re.findall(pattern,str)
+        items=re.findall(self.patternred,str)
         return items
     #解析黄色部分
     def parseYellowString(self,str):
-        pattern=re.compile('<TR>.*?bgColor=3Dyellow.*?<CENTER>(.*?)</CENTER>.*?3Dblue>(.*?)</FONT>.*?write\(\'(.*?)\'\).*?</FONT></TD></TR>',re.S)
-        items=re.findall(pattern,str)
+        items=re.findall(self.patternyellow,str)
         return items
 
     #写入 Excel 文档
@@ -101,6 +102,7 @@ class Deal:
     def getOneReport(self,filepath,savepath):
         text=self.getString(filepath)
         self.model.filename=self.getFileName(text)
+        print(self.model.filename)
         redItems=self.parseRedString(text)
         yellowItems=self.parseYellowString(text)
         self.dataWrite(redItems+yellowItems,savepath)
