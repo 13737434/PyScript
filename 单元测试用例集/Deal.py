@@ -25,7 +25,7 @@ class Deal:
     patternAllCase=re.compile('# Begin Test Case(.*?)# End Test Case',re.S) #解析一个.tcf中的所有案例
     patternIDMess=re.compile('#Begin Sequence Documentation.*?Sequence Id:\s*(.*?)\s*#Begin Sequence Descriptions\s*(.*?)\s*#End Sequence Descriptions\s*Test Engineer:\s*(.*?)\s*#Begin Reference\s*(.*?)\s*#End Reference\s*#Begin User Global\s*(.*?)\s*#End User Global\s*#Begin Comment\s*(.*?)\s*#End Comment', re.S)# 解析该序列标识
           #for case
-    patternGetFunName=re.compile(r'Procedure =\s*(\S*)\s*Procedure Number',re.S) #解析一个case中的函数名
+    patternGetFunName=re.compile(r'Procedure =\s*(\S*)\s*\n',re.S) #解析一个case中的函数名
     patternGetFileName=re.compile(r'File.*\\(\w*)\.c',re.S) #解析一个case中的文件名
     patternGetTesting=re.compile('#Begin View Case Documentation.*?Test Skills:\s*(.*?)\s*#Begin Case Descriptions\s*(.*?)\s*#End Case Descriptions',re.S) #解析测试技术&用例描述
     patternGetG=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = G\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析全局变量
@@ -34,17 +34,23 @@ class Deal:
     patternGetZ=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = Z\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析输入
     patternGetH=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = H\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析输出
     patternGetO=re.compile('# Begin Variable\s*Name =\s*(\S*)\s*Decl_type =\s*(\S*)\s*Usage = O\s*Value =\s*(\S*)\s*# End Variable',re.S) #解析返回值
+        #解析全局输入
+    patternGlobalInit=re.compile('# Begin Code\s*(.*?)\s*# End Code',re.S)
 
 
 
 #获取 XXXXX.tcf中的文本
     def getText(self, url):
-        with open(url, 'rb') as f:
-            f_read=f.read()
-            f_charInfo=chardet.detect(f_read)
-            f_read_decode=f_read.decode(f_charInfo['encoding'])
-            print(f_charInfo['encoding'])
-        return f_read_decode
+        with open(url, 'r',encoding="GBK") as f:
+            text=f.read()
+            return text
+        # with open(url, 'rb') as f:
+        #     f_read=f.read()
+        #     f_charInfo=chardet.detect(f_read)
+        #     f_read_decode=f_read.decode(f_charInfo['encoding'])
+        #     print(f_charInfo['encoding'])
+        # return f_read_decode
+
 
     #正则匹配所有tcf中的有用信息,返回一个列表
     def getCaseList(self,text):
@@ -138,9 +144,17 @@ class Deal:
                 casedetail['inputstr']='无'
 
             # 解析初始化代码
+            casedetail['init']=''
+            '''解析全局输入'''
+            globalinit=re.findall(self.patternGlobalInit,text)
+            if(globalinit):
+                casedetail['init']=casedetail['init']+globalinit[0]
+            '''解析案例输入'''
             initlist=re.findall(self.patternInit,case)
             if(initlist):
-                casedetail['init']=initlist[0]
+                casedetail['init']=casedetail['init']+initlist[0]
+            if(casedetail['init']):
+                pass
             else:
                 casedetail['init']='无'
 

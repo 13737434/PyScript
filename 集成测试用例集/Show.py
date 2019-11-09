@@ -141,6 +141,7 @@ class Show:
                             self.txtmessshow.see(tkinter.END)
                             list.append(caselist1)
                             ii+=1
+                        self.txtmessshow.insert(tkinter.END,'----开始生成。。。\n--------------------------------\n')
                         deal.dealCase(list,self.savepath)
                         self.txtmessshow.insert(tkinter.END,'----导出完成\n--------------------------------\n')
                         self.txtmessshow.see(tkinter.END)

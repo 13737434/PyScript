@@ -86,6 +86,7 @@ class Show:
                             ii+=1
                             self.txtmessshow.insert(tkinter.END, '----解析文本'+str(ii)+'\n--------------------------------\n')
                             self.txtmessshow.see(tkinter.END)
+                            print(li)
                             text=run.getText(li)
                             run.dealText(text)
                         run.makeExcel(run.resultlist,run.casenumlist,self.savepath)

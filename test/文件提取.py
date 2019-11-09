@@ -2,15 +2,17 @@ import shutil
 import os
 # 从excel第一列中读取所有.c文件名
 from openpyxl import load_workbook
+
 def getallfun(path):
     wb = load_workbook(path)
     wb.guess_types = True   #猜测格式类型
     ws=wb.active
     tmplist=[]
-    for i in range(1,164):
-        if(ws["A"+str(i)].value):
-            tmplist.append(str(ws["A"+str(i)].value).replace(".c",""))
+    for i in range(153,201):
+        if(ws["B"+str(i)].value):
+            tmplist.append(str(ws["B"+str(i)].value).replace(".c",""))
     print(len(tmplist))
+    print(tmplist)
     return tmplist
 
 
@@ -31,6 +33,17 @@ def selectFile(list,dirpath,dirpath_save):
         print(list)#未找到的文件名
     else:
         print("全部找到")
+
+# 筛选所有头文件
+def selectHeadFile(dirpath,dirpath_save):
+    for root, dirs, files in os.walk(dirpath):
+        #print(root) #当前目录路径
+        #print(dirs) #当前路径下所有子目录
+        #print(files) #当前路径下所有非目录子文件
+        for file in files:
+            if(os.path.splitext(file)[1] == '.h'):
+                shutil.copy(os.path.join(root, file), dirpath_save)
+    print("结束")
 
 # 静态测试文件夹创建
 def makedir(list,path):
@@ -67,6 +80,7 @@ def makedir(list,path):
 
 
 if __name__ == '__main__':
-    list=getallfun('C:/Users/v5682/Desktop/新建.xlsx')
-    makedir(list,"C:\\Users\\v5682\\Desktop\\static")
-    #selectFile(list,'C:\\Users\\v5682\\Desktop\\董威','C:\\Users\\v5682\\Desktop\\新建')
+    list=getallfun('C:/Users/v5682/Desktop/1.7.0白盒测试任务.xlsx')
+    # makedir(list,"C:\\Users\\v5682\\Desktop\\static")
+    selectFile(list,'C:\\Users\\v5682\\Desktop\\1.7.0代码','C:\\Users\\v5682\\Desktop\\新建\\董威')
+    #selectHeadFile('C:\\Users\\v5682\\Desktop\\1.7.0代码','C:\\Users\\v5682\\Desktop\\新建\\head')
