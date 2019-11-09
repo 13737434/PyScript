@@ -128,6 +128,7 @@ class Show:
             self.savepath=tkinter.filedialog.askdirectory(title='请选择保存路径')
             if(self.savepath):
                 def thread1(filelist):
+                    self.errs=""
                     try:
                         self.txtmessshow.insert(tkinter.END, '正在生成.\n--------------------------------\n')
                         self.txtmessshow.see(tkinter.END)
@@ -135,6 +136,7 @@ class Show:
                         list=[]
                         ii=1
                         for file in filelist:
+                            self.errs=file
                             text1=deal.getText(file)
                             caselist1=deal.getCaseList(text1)
                             self.txtmessshow.insert(tkinter.END, '----解析文本'+str(ii)+'\n--------------------------------\n')
@@ -150,7 +152,7 @@ class Show:
                         tkinter.messagebox.showinfo("Finish","任务结束.")
                         # self.ischoose=False #可以一次导入多次生成
                     except Exception as exc:
-                        tkinter.messagebox.showerror("Finish",exc)
+                        tkinter.messagebox.showerror("Finish",exc+"\n请检查"+self.errs)
                         print(exc)
                 th=threading.Thread(target=thread1,args=(self.filelist,))
                 th.setDaemon(True)

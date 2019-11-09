@@ -76,6 +76,7 @@ class Show:
         if(self.ischoose):
             self.savepath=tkinter.filedialog.askdirectory(title='请选择保存路径')
             if(self.savepath):
+                self.errs=""
                 def thread1(filelist):
                     try:
                         self.txtmessshow.insert(tkinter.END, '正在生成.\n--------------------------------\n')
@@ -86,7 +87,7 @@ class Show:
                             ii+=1
                             self.txtmessshow.insert(tkinter.END, '----解析文本'+str(ii)+'\n--------------------------------\n')
                             self.txtmessshow.see(tkinter.END)
-                            print(li)
+                            self.errs=li
                             text=run.getText(li)
                             run.dealText(text)
                         run.makeExcel(run.resultlist,run.casenumlist,self.savepath)
@@ -97,8 +98,7 @@ class Show:
                         tkinter.messagebox.showinfo("Finish","任务结束.")
                         # self.ischoose=False #可以一次导入多次生成
                     except Exception as exc:
-                        tkinter.messagebox.showerror("Finish",exc)
-                        print(exc)
+                        tkinter.messagebox.showerror("Finish","请检查"+self.errs)
                 th=threading.Thread(target=thread1,args=(self.filelist,))
                 th.setDaemon(True)
                 th.start()
