@@ -98,7 +98,7 @@ class Show:
                         tkinter.messagebox.showinfo("Finish","任务结束.")
                         # self.ischoose=False #可以一次导入多次生成
                     except Exception as exc:
-                        tkinter.messagebox.showerror("Finish","请检查"+self.errs)
+                        tkinter.messagebox.showerror("Finish","请检查"+str(self.errs))
                 th=threading.Thread(target=thread1,args=(self.filelist,))
                 th.setDaemon(True)
                 th.start()

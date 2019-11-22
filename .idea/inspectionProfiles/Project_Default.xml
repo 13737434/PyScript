@@ -6,6 +6,7 @@
         <list>
           <option value="docx.enum.text.*" />
           <option value="docx.enum.table.*" />
+          <option value="车载ATO铁电文件自动生成工具.Deal.MainShow" />
         </list>
       </option>
     </inspection_tool>

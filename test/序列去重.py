@@ -7,7 +7,7 @@ def getText(url):
     with open(url, 'r',encoding="GBK") as f:
         text=f.read()
         return text
-for root, dirs, files in os.walk('C:/Users/v5682/Desktop/04_测试序列/集成测试'):
+for root, dirs, files in os.walk('C:/Users/v5682/Desktop/2019-11-11'):
     #print(root) #当前目录路径
     #print(dirs) #当前路径下所有子目录
     #print(files) #当前路径下所有非目录子文件

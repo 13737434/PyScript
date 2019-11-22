@@ -90,7 +90,7 @@ class Deal:
 
 if __name__ == '__main__':
     dd=Deal()
-    text=dd.getString('C:/Users/v5682/Desktop/MyUnderstandProject10.txt')
+    text=dd.getString('C:/Users/v5682/Desktop/MyUnderstandProject12.txt')
     if(dd.isTrue(text)):
         fundic=dd.getCFileDict(text)
         print("正在生成excel")

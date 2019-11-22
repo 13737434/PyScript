@@ -41,7 +41,7 @@ class Deal:
 
 #获取 XXXXX.tcf中的文本
     def getText(self, url):
-        with open(url, 'r',encoding="GBK") as f:
+        with open(url, 'r',encoding="GB18030",errors="ignore") as f:
             text=f.read()
             return text
         # with open(url, 'rb') as f:
@@ -148,7 +148,8 @@ class Deal:
             '''解析全局输入'''
             globalinit=re.findall(self.patternGlobalInit,text)
             if(globalinit):
-                casedetail['init']=casedetail['init']+globalinit[0]
+                for x in range(0,len(globalinit)):
+                    casedetail['init']=casedetail['init']+globalinit[x]
             '''解析案例输入'''
             initlist=re.findall(self.patternInit,case)
             if(initlist):

@@ -155,9 +155,11 @@ class Show:
                 deal=Deal(model)
                 def thread1(filelist):
                     try:
+                        self.errs=""
                         self.txtMessShow.insert(tkinter.END, '正在生成.\n--------------------------------\n')
                         self.txtMessShow.see(tkinter.END)
                         for file in filelist:
+                            self.errs=file
                             filename=deal.getOneReport(file,self.savepath)
                             self.txtMessShow.insert(tkinter.END, filename+'----导出完成\n--------------------------------\n')
                             self.txtMessShow.see(tkinter.END)
@@ -166,7 +168,7 @@ class Show:
                         tkinter.messagebox.showinfo("Finish","任务结束.")
                         self.ischoose=False
                     except Exception as exc:
-                        tkinter.messagebox.showerror("Finish",exc)
+                        tkinter.messagebox.showerror("Finish","请检查"+str(self.errs)+"\n"+str(exc))
                         print(exc)
                 th=threading.Thread(target=thread1,args=(self.filelist,))
                 th.setDaemon(True)

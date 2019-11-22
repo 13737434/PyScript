@@ -153,7 +153,8 @@ class Deal:
             '''解析全局输入'''
             globalinit=re.findall(self.patternGlobalInit,text)
             if(globalinit):
-                casedetail['init']=casedetail['init']+globalinit[0]
+                for x in range(0,len(globalinit)):
+                    casedetail['init']=casedetail['init']+globalinit[x]
             '''解析案例输入'''
             initlist=re.findall(self.patternInit,case)
             if(initlist):
