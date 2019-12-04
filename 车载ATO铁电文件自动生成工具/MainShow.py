@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         self.lab_picture = QtWidgets.QLabel(self.centralwidget)
         self.lab_picture.setGeometry(QtCore.QRect(770, 0, 181, 101))
         self.lab_picture.setText("")
-        self.lab_picture.setPixmap(QtGui.QPixmap("C:/Users/v5682/Pictures/微信图片_20191120085328.jpg"))
+        #self.lab_picture.setPixmap(QtGui.QPixmap("C:/Users/v5682/Pictures/微信图片_20191120085328.jpg"))
         self.lab_picture.setScaledContents(True)
         self.lab_picture.setAlignment(QtCore.Qt.AlignCenter)
         self.lab_picture.setWordWrap(False)

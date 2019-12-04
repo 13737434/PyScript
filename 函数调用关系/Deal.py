@@ -13,8 +13,12 @@ class Deal:
 
     #获取 XXXXX.txt 中的文本
     def getString(self, url):
-        with open(url, 'r') as f:
-            text=f.read()
+        try:
+            with open(url, 'r',errors="ignore") as f:
+                text=f.read()
+        except:
+            with open(url, 'r',encoding="utf-8",errors="ignore") as f:
+                text=f.read()
         return text
 
     # 判断文本是否符合要求

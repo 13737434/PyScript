@@ -1,9 +1,11 @@
+import base64
+import os
 import chardet
-from PyQt5 import QtWidgets
 from PyQt5.QtCore import Qt, pyqtSignal, QThread
 from PyQt5.QtWidgets import QTableWidgetItem, QFileDialog, QMessageBox
+from PyQt5 import QtGui, QtWidgets
 from openpyxl import load_workbook
-
+from 车载ATO铁电文件自动生成工具.photo import img
 from 车载ATO铁电文件自动生成工具.MainShow import Ui_MainWindow
 import sys
 class MyPyQT_Form(QtWidgets.QMainWindow,Ui_MainWindow):
@@ -15,6 +17,11 @@ class MyPyQT_Form(QtWidgets.QMainWindow,Ui_MainWindow):
         super(MyPyQT_Form,self).__init__()
         self.setupUi(self)
         '''UI Init Start'''
+        tmp = open("phototmp233.jpg","wb+")
+        tmp.write(base64.b64decode(img))
+        tmp.close()
+        self.lab_picture.setPixmap(QtGui.QPixmap("phototmp233.jpg")) #加载图片
+        os.remove("phototmp233.jpg")
         #self.tableWidget_1.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) #表格列宽度均分
         self.headview_1=self.tableWidget_1.horizontalHeader()  #当前界面宽度 936
         self.headview_1.resizeSection(0,70)
@@ -34,6 +41,7 @@ class MyPyQT_Form(QtWidgets.QMainWindow,Ui_MainWindow):
         self.btn_2.clicked.connect(self.addFile_2)
         self.btn_3.clicked.connect(self.makeFiles)
         '''Event End'''
+
 
     #添加通用ATO铁电参数文件
     def addFile_1(self):

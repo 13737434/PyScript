@@ -1,12 +1,11 @@
 import os
 import re
-import chardet
 import base64
 from docx import *
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT,WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
-from docx.shared import Pt, RGBColor, Inches
+from docx.shared import Pt, RGBColor
 from 单元测试用例集.model import docx
 class Deal:
     def __init__(self,projectname,testpeople,projectyear,projectmonth,projectday):
@@ -43,7 +42,7 @@ class Deal:
     def getText(self, url):
         with open(url, 'r',encoding="GB18030",errors="ignore") as f:
             text=f.read()
-            return text
+        return text
         # with open(url, 'rb') as f:
         #     f_read=f.read()
         #     f_charInfo=chardet.detect(f_read)

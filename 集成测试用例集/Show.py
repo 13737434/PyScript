@@ -4,9 +4,7 @@ import tkinter.messagebox
 import tkinter.ttk
 import datetime
 import threading
-import base64
 from 集成测试用例集.icon import img
-import os
 from tkinter import ttk
 from 集成测试用例集.Deal import *
 

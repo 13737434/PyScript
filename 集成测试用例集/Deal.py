@@ -43,15 +43,15 @@ class Deal:
     def getText(self, url):
         with open(url, 'r',encoding="GBK") as f:
             text=f.read()
-            return text
-            '''
-                f_read=f.read()
-            f_charInfo=chardet.detect(f_read)
-            f_read_decode=f_read.decode(f_charInfo['encoding'])
-            print(f_charInfo['encoding'])
-            print(f_read_decode)
-        return f_read_decode
-            '''
+        return text
+        '''
+            f_read=f.read()
+        f_charInfo=chardet.detect(f_read)
+        f_read_decode=f_read.decode(f_charInfo['encoding'])
+        print(f_charInfo['encoding'])
+        print(f_read_decode)
+    return f_read_decode
+        '''
 
 
 

@@ -1,6 +1,5 @@
 import re
 import openpyxl
-from openpyxl import load_workbook
 from openpyxl.styles import Font,Alignment,Border,Side
 class Deal:
     def __init__(self,Model):
