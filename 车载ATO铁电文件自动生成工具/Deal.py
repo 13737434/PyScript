@@ -52,25 +52,26 @@ class MyPyQT_Form(QtWidgets.QMainWindow,Ui_MainWindow):
         self.textBrowser.append("通用ATO铁电参数文件： "+file+"  导入成功")
         try:
             with open(file, 'rb') as f:
-                f_read = f.read()
-                f_charInfo = chardet.detect(f_read)
-                text = f_read.decode(f_charInfo['encoding'])
-        except:
-            self.textBrowser.append("打开文件失败，请检查文件")
-            return
-        lines=text.split('\n')
-        self.head=lines[0]
-        tmptable=[]
-        for i in range(1,len(lines)):
-            cell=lines[i].split()
-            if(len(cell)!=4):
-                self.textBrowser.append("解析失败，请检查文本内容")
-                return
-            else:
-                tmptable.append(cell)
-        self.textBrowser.append("通用ATO铁电参数文件，解析成功")
-        self.table_1=tmptable
-        self.inputTable()
+                    f_read = f.read()
+                    f_charInfo = chardet.detect(f_read)
+            tmptable=[]
+            tmpi=0
+            for line in open(file,encoding=f_charInfo['encoding']):
+                if(tmpi==0): #第一行添加进头
+                    self.head=line
+                elif(";" in line or "；" in line): #结尾退出
+                    break
+                elif(line.split()): #非空行
+                    tmptable.append(line.split())
+                else: #空行
+                    pass
+                tmpi+=1
+            self.table_1=tmptable
+            self.textBrowser.append("通用ATO铁电参数文件，解析成功")
+            self.inputTable()
+        except Exception as exc:
+            self.textBrowser.append("通用ATO铁电参数文件，解析失败")
+            self.textBrowser.append(str(exc))
 
     #将解析后的通用ATO铁电参数加载到表格中
     def inputTable(self):
@@ -211,9 +212,9 @@ class WriteThread(QThread):
         self.signal.emit([0,"开始生成。。。"])
         for li in self.table_2:
             tmptxt=self.table_1
-            tmptxt[10][2]=li[3]
+            tmptxt[10][2]=li[3]   #OFFSET
             tmptxt[10][3]=li[3]
-            tmptxt[28][2]=li[2]
+            tmptxt[28][2]=li[2]   #TRAIN_ID
             tmptxt[28][3]=li[2]
             paraValue=[]
             for paraline in tmptxt:
